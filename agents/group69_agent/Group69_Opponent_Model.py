@@ -69,7 +69,8 @@ class FrequencyOpponentModelGroup69(UtilitySpace, OpponentModel):
                                       {iss: {} for iss in newDomain.getIssues()},
                                       0, newResBid, {iss: 0 for iss in newDomain.getIssues()},
                                              {iss: None for iss in newDomain.getIssues()},
-                                             {iss: Decimal(0) for iss in newDomain.getIssues()})
+                                             {iss: Decimal(0) for iss in newDomain.getIssues()},
+                                             [])
 
     # Override
     def getUtility(self, bid: Bid) -> Decimal:
@@ -127,7 +128,7 @@ class FrequencyOpponentModelGroup69(UtilitySpace, OpponentModel):
 
         return FrequencyOpponentModelGroup69(self._domain, newFreqs,
                                       self._totalBids + 1, self._resBid, self._frequencyChangePerIssue,
-                                             self._previousIssuesValue, self._issueWeights)
+                                             self._previousIssuesValue, self._issueWeights,self.all_bids)
 
     def getCounts(self, issue: str) -> Dict[Value, int]:
         '''
