@@ -80,7 +80,7 @@ class FrequencyOpponentModelGroup69(UtilitySpace, OpponentModel):
         # issues do not have equal weights
         for issue in val(self._domain).getIssues():
             if issue in bid.getIssues():
-                sum = sum + self._issueWeights * self._getFraction(issue, val(bid.getValue(issue)))
+                sum = sum + self._issueWeights[issue] * self._getFraction(issue, val(bid.getValue(issue)))
         return round(sum / len(self._bidFrequencies), FrequencyOpponentModelGroup69._DECIMALS)
 
     # Override
@@ -156,7 +156,7 @@ class FrequencyOpponentModelGroup69(UtilitySpace, OpponentModel):
         if not (issue in self._bidFrequencies and value in self._bidFrequencies[issue]):
             return Decimal(0)
         freq: int = self._bidFrequencies[issue][value]
-        return round(Decimal(freq) / self._totalBids, FrequencyOpponentModel._DECIMALS)  # type:ignore
+        return round(Decimal(freq) / self._totalBids, FrequencyOpponentModelGroup69._DECIMALS)  # type:ignore
 
     @staticmethod
     def cloneMap(freqs: Dict[str, Dict[Value, int]]) -> Dict[str, Dict[Value, int]]:

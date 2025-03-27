@@ -79,6 +79,7 @@ class TemplateAgent(DefaultParty):
             )
             self.profile = profile_connection.getProfile()
             self.domain = self.profile.getDomain()
+            self.opponent_model = self.opponent_model.With(self.domain, self.profile.getReservationBid())
             profile_connection.close()
 
         # ActionDone informs you of an action (an offer or an accept)
@@ -154,7 +155,7 @@ class TemplateAgent(DefaultParty):
             bid = cast(Offer, action).getBid()
 
             # update opponent model with bid
-            self.opponent_model.update(bid)
+            self.opponent_model = self.opponent_model.WithAction(action, self.progress)
             # set bid as last received
             self.last_received_bid = bid
 
@@ -240,7 +241,7 @@ class TemplateAgent(DefaultParty):
         score = alpha * time_pressure * our_utility
 
         if self.opponent_model is not None:
-            opponent_utility = self.opponent_model.get_predicted_utility(bid)
+            opponent_utility = self.opponent_model.getUtility(bid)
             opponent_score = (1.0 - alpha * time_pressure) * opponent_utility
             score += opponent_score
 
