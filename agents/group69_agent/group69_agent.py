@@ -183,9 +183,19 @@ class TemplateAgent(DefaultParty):
         for learning capabilities. Note that no extensive calculations can be done within this method.
         Taking too much time might result in your agent being killed, so use it for storage only.
         """
+
         data = "Data for learning (see README.md)"
+
         with open(f"{self.storage_dir}/data.md", "w") as f:
             f.write(data)
+
+        if self.other is None or self.opponent_model is None:
+            return
+
+        self.opponent_model.save_data(self.storage_dir, self.other)
+
+
+
 
     ###########################################################################################
     ################################## Example methods below ##################################

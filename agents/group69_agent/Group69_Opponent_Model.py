@@ -10,6 +10,8 @@ from geniusweb.progress.Progress import Progress
 from geniusweb.actions.Offer import Offer
 from geniusweb.references.Parameters import Parameters
 from geniusweb.utils import val, HASH, toStr
+import os
+import json
 
 
 class FrequencyOpponentModelGroup69(UtilitySpace, OpponentModel):
@@ -58,6 +60,7 @@ class FrequencyOpponentModelGroup69(UtilitySpace, OpponentModel):
 
     @staticmethod
     def create() -> "FrequencyOpponentModelGroup69":
+
         return FrequencyOpponentModelGroup69(None, {}, 0, None, {}, {}, {},[])
 
     # Override
@@ -174,6 +177,31 @@ class FrequencyOpponentModelGroup69(UtilitySpace, OpponentModel):
     # Override
     def getReservationBid(self) -> Optional[Bid]:
         return self._resBid
+    def save_data(self, storage_dir, other):
+        issue_data = {}
+        for issue, weight in self._issueWeights.items():
+            value_utilities = {}
+            for value, count in self._bidFrequencies.get(issue, {}).items():
+                value_utilities[value.getValue()] = float(self._getFraction(issue, value))
+
+            issue_data[issue] = {
+                "DiscreteValueSetUtilities": {
+                    "valueUtilities": value_utilities
+                },
+                "Weight": float(weight)
+            }
+        self._resBid = self.all_bids[self.all_bids.index(min([self.getUtility(x) for x in self.all_bids]))]
+
+        # Combine data
+        data_to_save = {
+            "Issues": issue_data,
+            "Reservation": self._resBid
+        }
+
+        # Save to file
+        file_path = os.path.join(storage_dir, f"{other}_data.json")
+        with open(file_path, "w") as f:
+            json.dump(data_to_save, f, indent=4)
 
     def __eq__(self, other):
         return isinstance(other, self.__class__) and \
