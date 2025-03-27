@@ -18,7 +18,7 @@ class FrequencyOpponentModelGroup69(UtilitySpace, OpponentModel):
     the opponent.
     <p>
     NOTE: {@link NumberValue}s are also treated as 'discrete', so the frequency
-    of one value does not influence the influence the frequency of nearby values
+    of one value does not influence the frequency of nearby values
     (as you might expect as {@link NumberValueSetUtilities} is only affected by
     the endpoints).
     <p>
@@ -31,6 +31,7 @@ class FrequencyOpponentModelGroup69(UtilitySpace, OpponentModel):
                  freqs: Dict[str, Dict[Value, int]], total: int,
                  resBid: Optional[Bid], change_freqs: Dict[str,int],
                  prev_value: Dict[str, Value], issue_weights: Dict[str, Decimal],
+                 all_bids: [Bid]
                  ):
         '''
         internal constructor. DO NOT USE, see create. Assumes the freqs keyset is
@@ -53,11 +54,11 @@ class FrequencyOpponentModelGroup69(UtilitySpace, OpponentModel):
         self._frequencyChangePerIssue = change_freqs
         self._previousIssuesValue = prev_value
         self._issueWeights = issue_weights
-
+        self.all_bids = all_bids
 
     @staticmethod
     def create() -> "FrequencyOpponentModelGroup69":
-        return FrequencyOpponentModelGroup69(None, {}, 0, None, {}, {}, {})
+        return FrequencyOpponentModelGroup69(None, {}, 0, None, {}, {}, {},[])
 
     # Override
     def With(self, newDomain: Domain, newResBid: Optional[Bid]) -> "FrequencyOpponentModelGroup69":
@@ -102,6 +103,7 @@ class FrequencyOpponentModelGroup69(UtilitySpace, OpponentModel):
             return self
 
         bid: Bid = action.getBid()
+        self.all_bids.append(bid)
         newFreqs: Dict[str, Dict[Value, int]] = self.cloneMap(self._bidFrequencies)
         for issue in self._domain.getIssues():  # type:ignore
             freqs: Dict[Value, int] = newFreqs[issue]

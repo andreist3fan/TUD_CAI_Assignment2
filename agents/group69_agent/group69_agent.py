@@ -3,6 +3,7 @@ from random import randint
 from time import time
 from typing import cast
 
+import numpy as np
 from geniusweb.actions.Accept import Accept
 from geniusweb.actions.Action import Action
 from geniusweb.actions.Offer import Offer
@@ -47,10 +48,12 @@ class TemplateAgent(DefaultParty):
         self.other: str = None
         self.settings: Settings = None
         self.storage_dir: str = None
-
         self.last_received_bid: Bid = None
         self.opponent_model: FrequencyOpponentModelGroup69 = None
         self.logger.log(logging.INFO, "party is initialized")
+
+        self.base_reservation = 0.9
+
 
     def notifyChange(self, data: Inform):
         """MUST BE IMPLEMENTED
@@ -61,7 +64,7 @@ class TemplateAgent(DefaultParty):
             info (Inform): Contains either a request for action or information.
         """
 
-        # a Settings message is the first message that will be send to your
+        # a Settings message is the first message that will be sent to your
         # agent containing all the information about the negotiation session.
         if isinstance(data, Settings):
             self.settings = cast(Settings, data)
@@ -194,14 +197,32 @@ class TemplateAgent(DefaultParty):
 
         # progress of the negotiation session between 0 and 1 (1 is deadline)
         progress = self.progress.get(time() * 1000)
-
-        # very basic approach that accepts if the offer is valued above 0.7 and
-        # 95% of the time towards the deadline has passed
+        crt_utility = self.profile.getUtility(bid)
         conditions = [
-            self.profile.getUtility(bid) > 0.8,
-            progress > 0.95,
+            crt_utility > self.base_reservation,
+            progress <= 0.6,
         ]
-        return all(conditions)
+        if all(conditions):
+            return True
+
+        acc_utility = self.get_acceptable_utility()
+        return crt_utility > acc_utility
+
+    def get_acceptable_utility(self):
+        progress = self.progress.get(time() * 1000)
+        hardball = self.is_opponent_hardball()
+
+        if(hardball):
+            return self.base_reservation - progress*0.5
+        else:
+            return self.base_reservation - progress*0.3
+
+    def is_opponent_hardball(self):
+        opponent_last_bids = np.array(self.opponent_model.getUtility(self.opponent_model.all_bids[-40:]))
+        max_ut_opp = np.max(opponent_last_bids)
+        min_ut_opp = np.min(opponent_last_bids)
+
+        return max_ut_opp - min_ut_opp < 0.1
 
     def find_bid(self) -> Bid:
         # compose a list of all possible bids
