@@ -27,7 +27,7 @@ from geniusweb.progress.ProgressTime import ProgressTime
 from geniusweb.references.Parameters import Parameters
 from tudelft_utilities_logging.ReportToLogger import ReportToLogger
 
-from .utils.opponent_model import OpponentModel
+from agents.group69_agent.Group69_Opponent_Model import FrequencyOpponentModelGroup69
 
 
 class TemplateAgent(DefaultParty):
@@ -49,7 +49,7 @@ class TemplateAgent(DefaultParty):
         self.storage_dir: str = None
 
         self.last_received_bid: Bid = None
-        self.opponent_model: OpponentModel = None
+        self.opponent_model: FrequencyOpponentModelGroup69 = None
         self.logger.log(logging.INFO, "party is initialized")
 
     def notifyChange(self, data: Inform):
@@ -137,7 +137,7 @@ class TemplateAgent(DefaultParty):
         Returns:
             str: Agent description
         """
-        return "Template agent for the ANL 2022 competition"
+        return "Group 69 agent with following properties"
 
     def opponent_action(self, action):
         """Process an action that was received from the opponent.
@@ -149,7 +149,7 @@ class TemplateAgent(DefaultParty):
         if isinstance(action, Offer):
             # create opponent model if it was not yet initialised
             if self.opponent_model is None:
-                self.opponent_model = OpponentModel(self.domain)
+                self.opponent_model = FrequencyOpponentModelGroup69.create()
 
             bid = cast(Offer, action).getBid()
 
