@@ -53,7 +53,7 @@ class TemplateAgent(DefaultParty):
         self.logger.log(logging.INFO, "party is initialized")
 
         self.base_reservation = 0.9
-
+        self.modelling_time = 0.6
 
     def notifyChange(self, data: Inform):
         """MUST BE IMPLEMENTED
@@ -82,6 +82,7 @@ class TemplateAgent(DefaultParty):
             )
             self.profile = profile_connection.getProfile()
             self.domain = self.profile.getDomain()
+            self.opponent_model = FrequencyOpponentModelGroup69.create()
             self.opponent_model = self.opponent_model.With(self.domain, self.profile.getReservationBid())
             profile_connection.close()
 
@@ -169,6 +170,7 @@ class TemplateAgent(DefaultParty):
         # check if the last received offer is good enough
         if self.accept_condition(self.last_received_bid):
             # if so, accept the offer
+            print(f"We accepted at utility: {self.profile.getUtility(self.last_received_bid)}")
             action = Accept(self.me, self.last_received_bid)
         else:
             # if not, find a bid to propose as counter offer
@@ -198,12 +200,10 @@ class TemplateAgent(DefaultParty):
         # progress of the negotiation session between 0 and 1 (1 is deadline)
         progress = self.progress.get(time() * 1000)
         crt_utility = self.profile.getUtility(bid)
-        conditions = [
-            crt_utility > self.base_reservation,
-            progress <= 0.6,
-        ]
-        if all(conditions):
-            return True
+        #print(f"progress: {progress}")
+
+        if progress<=self.modelling_time:
+            return crt_utility >= self.base_reservation
 
         acc_utility = self.get_acceptable_utility()
         return crt_utility > acc_utility
@@ -211,14 +211,14 @@ class TemplateAgent(DefaultParty):
     def get_acceptable_utility(self):
         progress = self.progress.get(time() * 1000)
         hardball = self.is_opponent_hardball()
-
+        linear_decrease = (progress-self.modelling_time)/(1-self.modelling_time)
         if(hardball):
-            return self.base_reservation - progress*0.5
+            return self.base_reservation - linear_decrease*0.5
         else:
-            return self.base_reservation - progress*0.3
+            return self.base_reservation - linear_decrease*0.3
 
     def is_opponent_hardball(self):
-        opponent_last_bids = np.array(self.opponent_model.getUtility(self.opponent_model.all_bids[-40:]))
+        opponent_last_bids = np.array([ self.opponent_model.getUtility(x) for x in self.opponent_model.all_bids[-40:]])
         max_ut_opp = np.max(opponent_last_bids)
         min_ut_opp = np.min(opponent_last_bids)
 
@@ -262,7 +262,7 @@ class TemplateAgent(DefaultParty):
         score = alpha * time_pressure * our_utility
 
         if self.opponent_model is not None:
-            opponent_utility = self.opponent_model.getUtility(bid)
+            opponent_utility = float(self.opponent_model.getUtility(bid))
             opponent_score = (1.0 - alpha * time_pressure) * opponent_utility
             score += opponent_score
 
