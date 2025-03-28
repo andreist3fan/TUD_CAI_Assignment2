@@ -4,6 +4,7 @@ from random import randint
 from time import time
 from typing import cast
 
+import numpy as np
 from geniusweb.actions.Accept import Accept
 from geniusweb.actions.Action import Action
 from geniusweb.actions.Offer import Offer
@@ -259,33 +260,10 @@ class TemplateAgent(DefaultParty):
             self.last_sent_bid = bid
             return bid
 
-        # possible mean have to figure out what Values are
-
-        dictionary = dict()
-        for i in range(len(self.sorted_weights)):
-            current_index = self.last_index % len(self.sorted_weights)
-            cur_issue: str = self.sorted_weights[i][1]
-            if i != current_index:
-                dictionary[cur_issue] = ls.getValue(cur_issue)
-            v1 = lr.getValue(cur_issue)
-            v2 = ls.getValue(cur_issue)
-            if v1 is None and v2 is None:
-                dictionary[i] = None
-            elif v1 is None:
-                dictionary[i] = v2
-            elif v2 is None:
-                dictionary[i] = v1
-            else:
-                nv1 = convert_number(v1)
-                nv2 = convert_number(v2)
-                if nv1 is None:
-                    self.last_index += 1
-                    continue
-
-                dictionary[cur_issue] = (nv1 + nv2) / 2
-            self.last_index += 1
-
-        bid = Bid(dictionary)
+        # Search for a bid with the mean utility
+        our_utility = self.score_bid(ls)
+        their_utility = self.score_bid(lr)
+        bid = self.choose_suitable_bid(np.mean([our_utility, their_utility]))
         self.sent_bids.append(bid)
         self.last_sent_bid = bid
         return bid
@@ -337,7 +315,20 @@ class TemplateAgent(DefaultParty):
         for i in range(0, all_bids.size()):
             cur_bid = all_bids.get(i)
             cur_util = self.score_bid(cur_bid)
-            if util < cur_util and cur_util > 0.5 and self.sent_bids.__contains__(cur_bid):
+            if util < cur_util and cur_util > 0.5 and not (self.sent_bids.__contains__(cur_bid)):
+                util = cur_util
+                bid = cur_bid
+
+        return bid
+
+    def choose_suitable_bid(self, target_util):
+        all_bids = AllBidsList(self.domain)
+        bid = None
+        util = np.inf
+        for i in range(0, all_bids.size()):
+            cur_bid = all_bids.get(i)
+            cur_util = self.score_bid(cur_bid)
+            if util > abs(cur_util - target_util) and cur_util > 0.5 and not (self.sent_bids.__contains__(cur_bid)):
                 util = cur_util
                 bid = cur_bid
 
