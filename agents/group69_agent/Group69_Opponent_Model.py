@@ -54,6 +54,7 @@ class FrequencyOpponentModelGroup69(UtilitySpace, OpponentModel):
         self._bidFrequencies = freqs
         self._totalBids = total
         self._resBid = resBid
+        self._totalChanges = 0
 
         self._frequencyChangePerIssue = change_freqs
         self._previousIssuesValue = prev_value
@@ -129,15 +130,16 @@ class FrequencyOpponentModelGroup69(UtilitySpace, OpponentModel):
                     self._previousIssuesValue[issue] = value
 
         total_weight = 0
-        total_changes = sum(self._frequencyChangePerIssue.values())
         # calculate weights based on issue changes
         for issue in self._issueWeights.keys():
             frequency_weight = Decimal(1) / (Decimal(1) + Decimal(self._frequencyChangePerIssue[issue]))
             counter_response_weight = Decimal(0)
-            if self._ourPreviousIssuesValues[issue] is not None and self._ourPreviousIssuesValues[issue] != bid.getValue(issue):
+            if (self._ourPreviousIssuesValues[issue] is not None
+                    and self._ourPreviousIssuesValues[issue] != bid.getValue(issue)):
                 counter_response_weight = Decimal(0.2)
 
-            weight = FrequencyOpponentModelGroup69._ALPHA* frequency_weight + FrequencyOpponentModelGroup69._BETA*counter_response_weight
+            weight = (FrequencyOpponentModelGroup69._ALPHA * frequency_weight
+                      + FrequencyOpponentModelGroup69._BETA * counter_response_weight)
             self._issueWeights[issue] = weight
             total_weight += weight
         for issue in self._issueWeights.keys():
@@ -227,13 +229,52 @@ class FrequencyOpponentModelGroup69(UtilitySpace, OpponentModel):
         # Combine data
         data_to_save = {
             "Issues": issue_data,
-            "Reservation": self._resBid
+            "Reservation": self._resBid,
+            "Bids Exchanged": self._totalChanges + sum(self._bidFrequencies.values())
         }
 
         # Save to file
         file_path = os.path.join(storage_dir, f"{other}_data.json")
         with open(file_path, "w") as f:
             json.dump(data_to_save, f, indent=4)
+
+    def read_data(self, file_path: str):
+        '''
+        Reads a JSON file to load past negotiation data and updates issue weights and frequencies.
+        '''
+        if not os.path.exists(file_path):
+            print(f"File {file_path} does not exist.")
+            return
+
+        with open(file_path, 'r') as f:
+            data = json.load(f)
+
+        previous_total_bids = data.get('Bids Exchanged', 0)
+        self._totalChanges = previous_total_bids
+        previous_issue_data = data.get('Issues', {})
+        self._resBid = data.get('Reservation', None)
+
+        # Update frequencies and weights
+        for issue, issue_info in previous_issue_data.items():
+            # Update issue weights
+            if 'Weight' in issue_info:
+                self._issueWeights[issue] = Decimal(issue_info['Weight'])
+
+            # Update value frequencies
+            value_utilities = issue_info.get('DiscreteValueSetUtilities', {}).get('valueUtilities', {})
+            for value_str, utility in value_utilities.items():
+                value = Value(value_str)
+                if issue not in self._bidFrequencies:
+                    self._bidFrequencies[issue] = {}
+
+                # Estimate frequency based on utility and previous rounds
+                estimated_count = int(utility * previous_total_bids)
+                if value in self._bidFrequencies[issue]:
+                    self._bidFrequencies[issue][value] += estimated_count
+                else:
+                    self._bidFrequencies[issue][value] = estimated_count
+
+        print("Data successfully read and integrated from JSON file.")
 
     def __eq__(self, other):
         return isinstance(other, self.__class__) and \
