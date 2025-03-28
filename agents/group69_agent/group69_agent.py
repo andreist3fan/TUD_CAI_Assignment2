@@ -176,6 +176,7 @@ class TemplateAgent(DefaultParty):
             # if not, find a bid to propose as counter offer
             bid = self.find_bid()
             action = Offer(self.me, bid)
+            self.opponent_model = self.opponent_model.WithMyAction(action, self.progress)
 
         # send the action
         self.send_action(action)

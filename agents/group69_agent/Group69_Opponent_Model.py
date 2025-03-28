@@ -27,12 +27,14 @@ class FrequencyOpponentModelGroup69(UtilitySpace, OpponentModel):
     immutable.
     '''
 
-    _DECIMALS = 4  # accuracy of our computations.
+    _DECIMALS = 4 # accuracy of our computations.
+    _ALPHA = Decimal(0.8)
+    _BETA = Decimal(0.2)
 
     def __init__(self, domain: Optional[Domain],
                  freqs: Dict[str, Dict[Value, int]], total: int,
-                 resBid: Optional[Bid], change_freqs: Dict[str,int],
-                 prev_value: Dict[str, Value], issue_weights: Dict[str, Decimal],
+                 resBid: Optional[Bid], change_freqs: Dict[str, int],
+                 prev_value: Dict[str, Value], agent69_prev_value: Dict[str, Value], issue_weights: Dict[str, Decimal],
                  all_bids: [Bid]
                  ):
         '''
@@ -55,13 +57,14 @@ class FrequencyOpponentModelGroup69(UtilitySpace, OpponentModel):
 
         self._frequencyChangePerIssue = change_freqs
         self._previousIssuesValue = prev_value
+        self._ourPreviousIssuesValues = agent69_prev_value
         self._issueWeights = issue_weights
         self.all_bids = all_bids
 
     @staticmethod
     def create() -> "FrequencyOpponentModelGroup69":
 
-        return FrequencyOpponentModelGroup69(None, {}, 0, None, {}, {}, {},[])
+        return FrequencyOpponentModelGroup69(None, {}, 0, None, {}, {}, {}, [])
 
     # Override
     def With(self, newDomain: Domain, newResBid: Optional[Bid]) -> "FrequencyOpponentModelGroup69":
@@ -69,8 +72,9 @@ class FrequencyOpponentModelGroup69(UtilitySpace, OpponentModel):
             raise ValueError("domain is not initialized")
         # FIXME merge already available frequencies?
         return FrequencyOpponentModelGroup69(newDomain,
-                                      {iss: {} for iss in newDomain.getIssues()},
-                                      0, newResBid, {iss: 0 for iss in newDomain.getIssues()},
+                                             {iss: {} for iss in newDomain.getIssues()},
+                                             0, newResBid, {iss: 0 for iss in newDomain.getIssues()},
+                                             {iss: None for iss in newDomain.getIssues()},
                                              {iss: None for iss in newDomain.getIssues()},
                                              {iss: Decimal(0) for iss in newDomain.getIssues()},
                                              [])
@@ -117,22 +121,48 @@ class FrequencyOpponentModelGroup69(UtilitySpace, OpponentModel):
                 if value in freqs:
                     oldfreq = freqs[value]
                 # calculate value frequency
-                freqs[value] = oldfreq + 1  # type:ignore
+                freqs[value] = oldfreq + 1
 
-                #update the changes in values
+                # update the changes in values
                 if self._previousIssuesValue[issue] != value:
                     self._frequencyChangePerIssue[issue] = self._frequencyChangePerIssue[issue] + 1
                     self._previousIssuesValue[issue] = value
 
-        #calculate weights based on issue changes
+        total_weight = 0
+        total_changes = sum(self._frequencyChangePerIssue.values())
+        # calculate weights based on issue changes
         for issue in self._issueWeights.keys():
-            self._issueWeights[issue] = Decimal(round(Decimal(1)/(Decimal(1)+Decimal(self._frequencyChangePerIssue[issue])) / Decimal(sum(self._frequencyChangePerIssue.values())), FrequencyOpponentModelGroup69._DECIMALS))
+            frequency_weight = Decimal(1) / (Decimal(1) + Decimal(self._frequencyChangePerIssue[issue]))
+            counter_response_weight = Decimal(0)
+            if self._ourPreviousIssuesValues[issue] is not None and self._ourPreviousIssuesValues[issue] != bid.getValue(issue):
+                counter_response_weight = Decimal(0.2)
 
+            weight = FrequencyOpponentModelGroup69._ALPHA* frequency_weight + FrequencyOpponentModelGroup69._BETA*counter_response_weight
+            self._issueWeights[issue] = weight
+            total_weight += weight
+        for issue in self._issueWeights.keys():
+            self._issueWeights[issue] = self._issueWeights[issue]/total_weight
 
         return FrequencyOpponentModelGroup69(self._domain, newFreqs,
-                                      self._totalBids + 1, self._resBid, self._frequencyChangePerIssue,
-                                             self._previousIssuesValue, self._issueWeights,self.all_bids)
+                                             self._totalBids + 1, self._resBid, dict(self._frequencyChangePerIssue),
+                                             dict(self._previousIssuesValue), dict(self._ourPreviousIssuesValues),
+                                             dict(self._issueWeights), list(self.all_bids))
+    def WithMyAction(self, action: Action, progress: Progress) -> "FrequencyOpponentModelGroup69":
+        if self._domain == None:
+            raise ValueError("domain is not initialized")
 
+        if not isinstance(action, Offer):
+            return self
+
+        bid: Bid = action.getBid()
+        ourValues = {}
+        for issue in self._domain.getIssues():
+            ourValues[issue] = bid.getValue(issue)
+
+        return FrequencyOpponentModelGroup69(self._domain, dict(self._bidFrequencies),
+                                             self._totalBids + 1, self._resBid, dict(self._frequencyChangePerIssue),
+                                             dict(self._previousIssuesValue), dict(self._ourPreviousIssuesValues),
+                                             dict(self._issueWeights), list(self.all_bids))
     def getCounts(self, issue: str) -> Dict[Value, int]:
         '''
         @param issue the issue to get frequency info for
@@ -178,6 +208,7 @@ class FrequencyOpponentModelGroup69(UtilitySpace, OpponentModel):
     # Override
     def getReservationBid(self) -> Optional[Bid]:
         return self._resBid
+
     def save_data(self, storage_dir, other):
         issue_data = {}
         for issue, weight in self._issueWeights.items():
