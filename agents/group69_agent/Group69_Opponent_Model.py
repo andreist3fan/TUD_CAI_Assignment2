@@ -126,7 +126,7 @@ class FrequencyOpponentModelGroup69(UtilitySpace, OpponentModel):
 
         #calculate weights based on issue changes
         for issue in self._issueWeights.keys():
-            self._issueWeights[issue] = Decimal(round(Decimal(self._frequencyChangePerIssue[issue]) / Decimal(sum(self._frequencyChangePerIssue.values())), FrequencyOpponentModelGroup69._DECIMALS))
+            self._issueWeights[issue] = Decimal(round(Decimal(1)/(Decimal(1)+Decimal(self._frequencyChangePerIssue[issue])) / Decimal(sum(self._frequencyChangePerIssue.values())), FrequencyOpponentModelGroup69._DECIMALS))
 
 
         return FrequencyOpponentModelGroup69(self._domain, newFreqs,
