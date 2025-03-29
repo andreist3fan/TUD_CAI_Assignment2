@@ -71,6 +71,7 @@ class Agent69(DefaultParty):
         self.logger.log(logging.INFO, "party is initialized")
 
         self.base_reservation = 0.9
+        self.current_reservation = 0.9
         self.modelling_time = 0.6
         self.updated = False
 
@@ -240,17 +241,23 @@ class Agent69(DefaultParty):
         if progress<=self.modelling_time:
             return crt_utility >= self.base_reservation
 
-        acc_utility = self.get_acceptable_utility()
-        return crt_utility > acc_utility
+        self.current_reservation = self.get_acceptable_utility()
+        return crt_utility >= self.current_reservation
 
     def get_acceptable_utility(self):
         progress = self.progress.get(time() * 1000)
         hardball = self.is_opponent_hardball()
-        linear_decrease = (progress-self.modelling_time)/(1-self.modelling_time)
-        if(hardball):
-            return self.base_reservation - linear_decrease*0.5
-        else:
-            return self.base_reservation - linear_decrease*0.3
+
+        # previous solution: linear decrease from 0.9 to 0.5 or 0.4 (depending if the opponent is hardballing)
+        #linear_decrease = (progress-self.modelling_time)/(1-self.modelling_time)
+
+        # current solution: still decrease, but adapt more to the opponent's strategy (hardballing or not)
+
+        if(hardball): # If opponent is hardballing, we need to concede more quickly
+            return self.current_reservation - 0.0001*0.4 # 0.0001 is the change between ticks (1 ms)
+                                                        # assuming we update each tick
+        else: # If opponent is not hardballing, we can be more strict
+            return self.current_reservation - 0.0001*0.25
 
     def is_opponent_hardball(self):
         opponent_last_bids = np.array([ self.opponent_model.getUtility(x) for x in self.opponent_model.all_bids[-40:]])
@@ -285,7 +292,7 @@ class Agent69(DefaultParty):
             if len(self.sorted_weights) == 0:
                 self.sort_bids(min_utility, min_utility - 0.05)
                 min_utility -= 0.05
-            print(len(self.sorted_all_bids))
+            #print(len(self.sorted_all_bids))
             bid = random.choice(self.sorted_all_bids)
             self.sent_bids.append(bid)
             #self.sorted_all_bids.remove(bid) TODO: why remove the bid? @Vasko
