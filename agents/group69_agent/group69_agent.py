@@ -1,4 +1,5 @@
 import logging
+import os
 from random import randint
 from time import time
 from typing import cast
@@ -54,6 +55,7 @@ class TemplateAgent(DefaultParty):
 
         self.base_reservation = 0.9
         self.modelling_time = 0.6
+        self.updated = False
 
     def notifyChange(self, data: Inform):
         """MUST BE IMPLEMENTED
@@ -83,7 +85,8 @@ class TemplateAgent(DefaultParty):
             self.profile = profile_connection.getProfile()
             self.domain = self.profile.getDomain()
             self.opponent_model = FrequencyOpponentModelGroup69.create()
-            self.opponent_model = self.opponent_model.With(self.domain, self.profile.getReservationBid())
+            self.opponent_model = self.opponent_model.With(self.domain, None)
+
             profile_connection.close()
 
         # ActionDone informs you of an action (an offer or an accept)
@@ -96,7 +99,10 @@ class TemplateAgent(DefaultParty):
             if actor != self.me:
                 # obtain the name of the opponent, cutting of the position ID.
                 self.other = str(actor).rsplit("_", 1)[0]
-
+                if not self.updated:
+                    file_path = os.path.join(str(self.storage_dir), f"{self.other}_data.json")
+                    self.opponent_model.read_data(file_path)
+                    self.updated = True
                 # process action done by opponent
                 self.opponent_action(action)
         # YourTurn notifies you that it is your turn to act
@@ -176,6 +182,7 @@ class TemplateAgent(DefaultParty):
             # if not, find a bid to propose as counter offer
             bid = self.find_bid()
             action = Offer(self.me, bid)
+            self.opponent_model = self.opponent_model.WithMyAction(action, self.progress)
 
         # send the action
         self.send_action(action)
@@ -185,9 +192,19 @@ class TemplateAgent(DefaultParty):
         for learning capabilities. Note that no extensive calculations can be done within this method.
         Taking too much time might result in your agent being killed, so use it for storage only.
         """
+
         data = "Data for learning (see README.md)"
+
         with open(f"{self.storage_dir}/data.md", "w") as f:
             f.write(data)
+
+        if self.other is None or self.opponent_model is None:
+            return
+
+        self.opponent_model.save_data(self.storage_dir, self.other)
+
+
+
 
     ###########################################################################################
     ################################## Example methods below ##################################
