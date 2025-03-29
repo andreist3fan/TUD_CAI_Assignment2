@@ -41,7 +41,7 @@ def convert_number(value):
         return None
 
 
-class TemplateAgent(DefaultParty):
+class Agent69(DefaultParty):
     """
     Template of a Python geniusweb agent.
     """
@@ -269,10 +269,10 @@ class TemplateAgent(DefaultParty):
 
         # Sort weights cause for some fucked up reason can't do that in the constructor
         if self.sorted_weights is None: self.sort_weights()
-
         # Return highest possible bid
         if lr is None:
             self.sorted_weights = self.profile.getWeights()
+            self.sort_bids(1.01, 0.9)
             bid = self.sorted_all_bids[0]
             self.last_sent_bid = bid
             self.sent_bids.append(bid)
@@ -285,10 +285,10 @@ class TemplateAgent(DefaultParty):
             if len(self.sorted_weights) == 0:
                 self.sort_bids(min_utility, min_utility - 0.05)
                 min_utility -= 0.05
-
+            print(len(self.sorted_all_bids))
             bid = random.choice(self.sorted_all_bids)
             self.sent_bids.append(bid)
-            self.sorted_all_bids.remove(bid)
+            #self.sorted_all_bids.remove(bid) TODO: why remove the bid? @Vasko
             self.last_sent_bid = bid
             return bid
 
@@ -342,11 +342,14 @@ class TemplateAgent(DefaultParty):
 
     def sort_bids(self, high, low):
         all_bids = AllBidsList(self.domain)
+        self.sorted_all_bids = [(0,0)] * all_bids.size()
         for i in range(0, all_bids.size()):
             utility = self.score_bid(all_bids.get(i))
             self.sorted_all_bids[i] = (utility, all_bids.get(i))
         self.sorted_all_bids.sort(key=lambda x: x[0], reverse=True)
-        self.sorted_all_bids = filter(lambda x: high > x[0] >= low, self.sorted_all_bids)
+        self.sorted_all_bids = list(filter(lambda x: high > x[0] >= low, self.sorted_all_bids))
+
+        self.sorted_all_bids = [x[1] for x in self.sorted_all_bids]
 
     def choose_best_bid(self):
         all_bids = AllBidsList(self.domain)
