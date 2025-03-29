@@ -35,7 +35,7 @@ class FrequencyOpponentModelGroup69(UtilitySpace, OpponentModel):
                  freqs: Dict[str, Dict[Value, int]], total: int,
                  resBid: Optional[Bid], change_freqs: Dict[str, int],
                  prev_value: Dict[str, Value], agent69_prev_value: Dict[str, Value], issue_weights: Dict[str, Decimal],
-                 all_bids: [Bid]
+                 all_bids: [Bid], total_changes: int
                  ):
         '''
         internal constructor. DO NOT USE, see create. Assumes the freqs keyset is
@@ -54,7 +54,7 @@ class FrequencyOpponentModelGroup69(UtilitySpace, OpponentModel):
         self._bidFrequencies = freqs
         self._totalBids = total
         self._resBid = resBid
-        self._totalChanges = 0
+        self._totalChanges = total_changes
 
         self._frequencyChangePerIssue = change_freqs
         self._previousIssuesValue = prev_value
@@ -66,7 +66,7 @@ class FrequencyOpponentModelGroup69(UtilitySpace, OpponentModel):
     @staticmethod
     def create() -> "FrequencyOpponentModelGroup69":
 
-        return FrequencyOpponentModelGroup69(None, {}, 0, None, {}, {},{}, {}, [])
+        return FrequencyOpponentModelGroup69(None, {}, 0, None, {}, {},{}, {}, [], 0)
 
     # Override
     def With(self, newDomain: Domain, newResBid: Optional[Bid]) -> "FrequencyOpponentModelGroup69":
@@ -79,7 +79,7 @@ class FrequencyOpponentModelGroup69(UtilitySpace, OpponentModel):
                                              {iss: None for iss in newDomain.getIssues()},
                                              {iss: None for iss in newDomain.getIssues()},
                                              {iss: Decimal(0) for iss in newDomain.getIssues()},
-                                             [])
+                                             [], total_changes=0)
 
     # Override
     def getUtility(self, bid: Bid) -> Decimal:
@@ -151,7 +151,7 @@ class FrequencyOpponentModelGroup69(UtilitySpace, OpponentModel):
         return FrequencyOpponentModelGroup69(self._domain, newFreqs,
                                              self._totalBids + 1, self._resBid, dict(self._frequencyChangePerIssue),
                                              dict(self._previousIssuesValue), dict(self._ourPreviousIssuesValues),
-                                             dict(self._issueWeights), list(self.all_bids))
+                                             dict(self._issueWeights), list(self.all_bids), self._totalChanges)
     def WithMyAction(self, action: Action, progress: Progress) -> "FrequencyOpponentModelGroup69":
         if self._domain == None:
             raise ValueError("domain is not initialized")
@@ -167,7 +167,7 @@ class FrequencyOpponentModelGroup69(UtilitySpace, OpponentModel):
         return FrequencyOpponentModelGroup69(self._domain, dict(self._bidFrequencies),
                                              self._totalBids + 1, self._resBid, dict(self._frequencyChangePerIssue),
                                              dict(self._previousIssuesValue), ourValues,
-                                             dict(self._issueWeights), list(self.all_bids))
+                                             dict(self._issueWeights), list(self.all_bids), self._totalChanges)
     def getCounts(self, issue: str) -> Dict[Value, int]:
         '''
         @param issue the issue to get frequency info for
