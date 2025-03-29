@@ -1,5 +1,6 @@
 import logging
 import random
+import os
 from random import randint
 from time import time
 from typing import cast
@@ -29,7 +30,7 @@ from geniusweb.progress.ProgressTime import ProgressTime
 from geniusweb.references.Parameters import Parameters
 from tudelft_utilities_logging.ReportToLogger import ReportToLogger
 
-from .utils.opponent_model import OpponentModel
+from agents.group69_agent.Group69_Opponent_Model import FrequencyOpponentModelGroup69
 
 
 def convert_number(value):
@@ -58,14 +59,20 @@ class TemplateAgent(DefaultParty):
         self.settings: Settings = None
         self.storage_dir: str = None
 
+
         self.sorted_all_bids = None
         self.last_sent_bid: Bid = None
         self.sorted_weights: list = None
         self.sent_bids = []
         self.last_index = 0
+
         self.last_received_bid: Bid = None
-        self.opponent_model: OpponentModel = None
+        self.opponent_model: FrequencyOpponentModelGroup69 = None
         self.logger.log(logging.INFO, "party is initialized")
+
+        self.base_reservation = 0.9
+        self.modelling_time = 0.6
+        self.updated = False
 
     def notifyChange(self, data: Inform):
         """MUST BE IMPLEMENTED
@@ -76,7 +83,7 @@ class TemplateAgent(DefaultParty):
             info (Inform): Contains either a request for action or information.
         """
 
-        # a Settings message is the first message that will be send to your
+        # a Settings message is the first message that will be sent to your
         # agent containing all the information about the negotiation session.
         if isinstance(data, Settings):
             self.settings = cast(Settings, data)
@@ -95,6 +102,8 @@ class TemplateAgent(DefaultParty):
             self.profile = profile_connection.getProfile()
             self.domain = self.profile.getDomain()
             self.sort_bids(1.01, 0.9)
+            self.opponent_model = FrequencyOpponentModelGroup69.create()
+            self.opponent_model = self.opponent_model.With(self.domain, None)
             profile_connection.close()
 
         # ActionDone informs you of an action (an offer or an accept)
@@ -107,7 +116,10 @@ class TemplateAgent(DefaultParty):
             if actor != self.me:
                 # obtain the name of the opponent, cutting of the position ID.
                 self.other = str(actor).rsplit("_", 1)[0]
-
+                if not self.updated:
+                    file_path = os.path.join(str(self.storage_dir), f"{self.other}_data.json")
+                    self.opponent_model.read_data(file_path)
+                    self.updated = True
                 # process action done by opponent
                 self.opponent_action(action)
         # YourTurn notifies you that it is your turn to act
@@ -153,7 +165,7 @@ class TemplateAgent(DefaultParty):
         Returns:
             str: Agent description
         """
-        return "Template agent for the ANL 2022 competition"
+        return "Group 69 agent with following properties"
 
     def opponent_action(self, action):
         """Process an action that was received from the opponent.
@@ -165,12 +177,12 @@ class TemplateAgent(DefaultParty):
         if isinstance(action, Offer):
             # create opponent model if it was not yet initialised
             if self.opponent_model is None:
-                self.opponent_model = OpponentModel(self.domain)
+                self.opponent_model = FrequencyOpponentModelGroup69.create()
 
             bid = cast(Offer, action).getBid()
 
             # update opponent model with bid
-            self.opponent_model.update(bid)
+            self.opponent_model = self.opponent_model.WithAction(action, self.progress)
             # set bid as last received
             self.last_received_bid = bid
 
@@ -182,11 +194,13 @@ class TemplateAgent(DefaultParty):
         # check if the last received offer is good enough
         if self.accept_condition(self.last_received_bid):
             # if so, accept the offer
+            print(f"We accepted at utility: {self.profile.getUtility(self.last_received_bid)}")
             action = Accept(self.me, self.last_received_bid)
         else:
             # if not, find a bid to propose as counter offer
             bid = self.find_bid()
             action = Offer(self.me, bid)
+            self.opponent_model = self.opponent_model.WithMyAction(action, self.progress)
 
         # send the action
         self.send_action(action)
@@ -196,9 +210,19 @@ class TemplateAgent(DefaultParty):
         for learning capabilities. Note that no extensive calculations can be done within this method.
         Taking too much time might result in your agent being killed, so use it for storage only.
         """
+
         data = "Data for learning (see README.md)"
+
         with open(f"{self.storage_dir}/data.md", "w") as f:
             f.write(data)
+
+        if self.other is None or self.opponent_model is None:
+            return
+
+        self.opponent_model.save_data(self.storage_dir, self.other)
+
+
+
 
     ###########################################################################################
     ################################## Example methods below ##################################
@@ -210,14 +234,30 @@ class TemplateAgent(DefaultParty):
 
         # progress of the negotiation session between 0 and 1 (1 is deadline)
         progress = self.progress.get(time() * 1000)
+        crt_utility = self.profile.getUtility(bid)
+        #print(f"progress: {progress}")
 
-        # very basic approach that accepts if the offer is valued above 0.7 and
-        # 95% of the time towards the deadline has passed
-        conditions = [
-            self.profile.getUtility(bid) > 0.8,
-            progress > 0.95,
-        ]
-        return all(conditions)
+        if progress<=self.modelling_time:
+            return crt_utility >= self.base_reservation
+
+        acc_utility = self.get_acceptable_utility()
+        return crt_utility > acc_utility
+
+    def get_acceptable_utility(self):
+        progress = self.progress.get(time() * 1000)
+        hardball = self.is_opponent_hardball()
+        linear_decrease = (progress-self.modelling_time)/(1-self.modelling_time)
+        if(hardball):
+            return self.base_reservation - linear_decrease*0.5
+        else:
+            return self.base_reservation - linear_decrease*0.3
+
+    def is_opponent_hardball(self):
+        opponent_last_bids = np.array([ self.opponent_model.getUtility(x) for x in self.opponent_model.all_bids[-40:]])
+        max_ut_opp = np.max(opponent_last_bids)
+        min_ut_opp = np.min(opponent_last_bids)
+
+        return max_ut_opp - min_ut_opp < 0.1
 
     def find_bid(self) -> Bid:
         # compose a list of all possible bids
@@ -290,7 +330,7 @@ class TemplateAgent(DefaultParty):
         score = alpha * time_pressure * our_utility
 
         if self.opponent_model is not None:
-            opponent_utility = self.opponent_model.get_predicted_utility(bid)
+            opponent_utility = float(self.opponent_model.getUtility(bid))
             opponent_score = (1.0 - alpha * time_pressure) * opponent_utility
             score += opponent_score
 

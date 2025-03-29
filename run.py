@@ -3,6 +3,7 @@ import time
 from pathlib import Path
 
 from utils.plot_trace import plot_trace
+from utils.plot_pareto import plot_pareto
 from utils.runners import run_session
 
 RESULTS_DIR = Path("results", time.strftime('%Y%m%d-%H%M%S'))
@@ -18,8 +19,8 @@ if not RESULTS_DIR.exists():
 settings = {
     "agents": [
         {
-            "class": "agents.ANL2022.dreamteam109_agent.dreamteam109_agent.DreamTeam109Agent",
-            "parameters": {"storage_dir": "agent_storage/DreamTeam109Agent"},
+            "class": "agents.group69_agent.group69_agent.TemplateAgent",
+            "parameters": {"storage_dir": "agent_storage/TemplateAgent69"},
         },
         {
             "class": "agents.template_agent.template_agent.TemplateAgent",
@@ -36,6 +37,7 @@ session_results_trace, session_results_summary = run_session(settings)
 # plot trace to html file
 if not session_results_trace["error"]:
     plot_trace(session_results_trace, RESULTS_DIR.joinpath("trace_plot.html"))
+    plot_pareto(session_results_trace, RESULTS_DIR.joinpath("pareto_plot.html"))
 
 # write results to file
 with open(RESULTS_DIR.joinpath("session_results_trace.json"), "w", encoding="utf-8") as f:
