@@ -1,4 +1,5 @@
 import logging
+import random
 import os
 from random import randint
 from time import time
@@ -32,6 +33,14 @@ from tudelft_utilities_logging.ReportToLogger import ReportToLogger
 from agents.group69_agent.Group69_Opponent_Model import FrequencyOpponentModelGroup69
 
 
+def convert_number(value):
+    try:
+        float(value)
+        return value
+    except ValueError:
+        return None
+
+
 class TemplateAgent(DefaultParty):
     """
     Template of a Python geniusweb agent.
@@ -49,6 +58,14 @@ class TemplateAgent(DefaultParty):
         self.other: str = None
         self.settings: Settings = None
         self.storage_dir: str = None
+
+
+        self.sorted_all_bids = None
+        self.last_sent_bid: Bid = None
+        self.sorted_weights: list = None
+        self.sent_bids = []
+        self.last_index = 0
+
         self.last_received_bid: Bid = None
         self.opponent_model: FrequencyOpponentModelGroup69 = None
         self.logger.log(logging.INFO, "party is initialized")
@@ -84,9 +101,9 @@ class TemplateAgent(DefaultParty):
             )
             self.profile = profile_connection.getProfile()
             self.domain = self.profile.getDomain()
+            self.sort_bids(1.01, 0.9)
             self.opponent_model = FrequencyOpponentModelGroup69.create()
             self.opponent_model = self.opponent_model.With(self.domain, None)
-
             profile_connection.close()
 
         # ActionDone informs you of an action (an offer or an accept)
@@ -173,6 +190,7 @@ class TemplateAgent(DefaultParty):
         """This method is called when it is our turn. It should decide upon an action
         to perform and send this action to the opponent.
         """
+
         # check if the last received offer is good enough
         if self.accept_condition(self.last_received_bid):
             # if so, accept the offer
@@ -244,19 +262,52 @@ class TemplateAgent(DefaultParty):
     def find_bid(self) -> Bid:
         # compose a list of all possible bids
         domain = self.profile.getDomain()
-        all_bids = AllBidsList(domain)
 
-        best_bid_score = 0.0
-        best_bid = None
+        progress = self.progress.get(1)
+        ls = self.last_sent_bid
+        lr = self.last_received_bid
 
-        # take 500 attempts to find a bid according to a heuristic score
-        for _ in range(500):
-            bid = all_bids.get(randint(0, all_bids.size() - 1))
-            bid_score = self.score_bid(bid)
-            if bid_score > best_bid_score:
-                best_bid_score, best_bid = bid_score, bid
+        # Sort weights cause for some fucked up reason can't do that in the constructor
+        if self.sorted_weights is None: self.sort_weights()
 
-        return best_bid
+        # Return highest possible bid
+        if lr is None:
+            self.sorted_weights = self.profile.getWeights()
+            bid = self.sorted_all_bids[0]
+            self.last_sent_bid = bid
+            self.sent_bids.append(bid)
+            return bid
+
+        # For the first 15% of the negotiation be greedy and don't go below 0.9 utility
+        # Choose a random value
+        min_utility = 0.9
+        if progress <= 0.15:
+            if len(self.sorted_weights) == 0:
+                self.sort_bids(min_utility, min_utility - 0.05)
+                min_utility -= 0.05
+
+            bid = random.choice(self.sorted_all_bids)
+            self.sent_bids.append(bid)
+            self.sorted_all_bids.remove(bid)
+            self.last_sent_bid = bid
+            return bid
+
+        # Hope opponent model is good enough by now
+        # If we are within the 75% return the highest combined util of the remaining bid
+        if progress <= 0.75:
+            bid = self.choose_best_bid()
+            self.sent_bids.append(bid)
+            self.last_sent_bid = bid
+            return bid
+
+        # Search for a bid with the mean utility
+        our_utility = self.score_bid(ls)
+        their_utility = self.score_bid(lr)
+        bid = self.choose_suitable_bid(np.mean([our_utility, their_utility]))
+        self.sent_bids.append(bid)
+        self.last_sent_bid = bid
+        return bid
+
 
     def score_bid(self, bid: Bid, alpha: float = 0.95, eps: float = 0.1) -> float:
         """Calculate heuristic score for a bid
@@ -284,3 +335,41 @@ class TemplateAgent(DefaultParty):
             score += opponent_score
 
         return score
+
+    def sort_weights(self):
+        dic = self.profile.getWeights()
+        self.sorted_weights = sorted(dic.items(), key=lambda x: x[1])
+
+    def sort_bids(self, high, low):
+        all_bids = AllBidsList(self.domain)
+        for i in range(0, all_bids.size()):
+            utility = self.score_bid(all_bids.get(i))
+            self.sorted_all_bids[i] = (utility, all_bids.get(i))
+        self.sorted_all_bids.sort(key=lambda x: x[0], reverse=True)
+        self.sorted_all_bids = filter(lambda x: high > x[0] >= low, self.sorted_all_bids)
+
+    def choose_best_bid(self):
+        all_bids = AllBidsList(self.domain)
+        bid = None
+        util = 0
+        for i in range(0, all_bids.size()):
+            cur_bid = all_bids.get(i)
+            cur_util = self.score_bid(cur_bid)
+            if util < cur_util and cur_util > 0.5 and not (self.sent_bids.__contains__(cur_bid)):
+                util = cur_util
+                bid = cur_bid
+
+        return bid
+
+    def choose_suitable_bid(self, target_util):
+        all_bids = AllBidsList(self.domain)
+        bid = None
+        util = np.inf
+        for i in range(0, all_bids.size()):
+            cur_bid = all_bids.get(i)
+            cur_util = self.score_bid(cur_bid)
+            if util > abs(cur_util - target_util) and cur_util > 0.5 and not (self.sent_bids.__contains__(cur_bid)):
+                util = cur_util
+                bid = cur_bid
+
+        return bid
