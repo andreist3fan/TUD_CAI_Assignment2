@@ -85,7 +85,7 @@ class TemplateAgent(DefaultParty):
             self.profile = profile_connection.getProfile()
             self.domain = self.profile.getDomain()
             self.opponent_model = FrequencyOpponentModelGroup69.create()
-            self.opponent_model = self.opponent_model.With(self.domain)
+            self.opponent_model = self.opponent_model.With(self.domain, None)
 
             profile_connection.close()
 
@@ -100,7 +100,7 @@ class TemplateAgent(DefaultParty):
                 # obtain the name of the opponent, cutting of the position ID.
                 self.other = str(actor).rsplit("_", 1)[0]
                 if not self.updated:
-                    file_path = os.path.join(str(self.storage_dir, f"{self.other}_data.json"))
+                    file_path = os.path.join(str(self.storage_dir), f"{self.other}_data.json")
                     self.opponent_model.read_data(file_path)
                     self.updated = True
                 # process action done by opponent

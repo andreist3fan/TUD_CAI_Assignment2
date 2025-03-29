@@ -60,12 +60,13 @@ class FrequencyOpponentModelGroup69(UtilitySpace, OpponentModel):
         self._previousIssuesValue = prev_value
         self._ourPreviousIssuesValues = agent69_prev_value
         self._issueWeights = issue_weights
+        self._pastIssues = {}
         self.all_bids = all_bids
 
     @staticmethod
     def create() -> "FrequencyOpponentModelGroup69":
 
-        return FrequencyOpponentModelGroup69(None, {}, 0, None, {}, {}, {}, [])
+        return FrequencyOpponentModelGroup69(None, {}, 0, None, {}, {},{}, {}, [])
 
     # Override
     def With(self, newDomain: Domain, newResBid: Optional[Bid]) -> "FrequencyOpponentModelGroup69":
@@ -140,8 +141,10 @@ class FrequencyOpponentModelGroup69(UtilitySpace, OpponentModel):
 
             weight = (FrequencyOpponentModelGroup69._ALPHA * frequency_weight
                       + FrequencyOpponentModelGroup69._BETA * counter_response_weight)
-            self._issueWeights[issue] = weight
-            total_weight += weight
+            gamma = Decimal(0.7)
+            combined_weight = gamma*self._pastIssues.get(issue, Decimal(0)) + (1-gamma)*weight
+            self._issueWeights[issue] = combined_weight
+            total_weight += combined_weight
         for issue in self._issueWeights.keys():
             self._issueWeights[issue] = self._issueWeights[issue]/total_weight
 
@@ -163,7 +166,7 @@ class FrequencyOpponentModelGroup69(UtilitySpace, OpponentModel):
 
         return FrequencyOpponentModelGroup69(self._domain, dict(self._bidFrequencies),
                                              self._totalBids + 1, self._resBid, dict(self._frequencyChangePerIssue),
-                                             dict(self._previousIssuesValue), dict(self._ourPreviousIssuesValues),
+                                             dict(self._previousIssuesValue), ourValues,
                                              dict(self._issueWeights), list(self.all_bids))
     def getCounts(self, issue: str) -> Dict[Value, int]:
         '''
@@ -216,7 +219,7 @@ class FrequencyOpponentModelGroup69(UtilitySpace, OpponentModel):
         for issue, weight in self._issueWeights.items():
             value_utilities = {}
             for value, count in self._bidFrequencies.get(issue, {}).items():
-                value_utilities[value.getValue()] = float(self._getFraction(issue, value))
+                value_utilities[value.getValue()] = self._bidFrequencies[issue][value]
 
             issue_data[issue] = {
                 "DiscreteValueSetUtilities": {
@@ -224,13 +227,18 @@ class FrequencyOpponentModelGroup69(UtilitySpace, OpponentModel):
                 },
                 "Weight": float(weight)
             }
-        self._resBid = self.all_bids[self.all_bids.index(min([self.getUtility(x) for x in self.all_bids]))]
+
+        # self._resBid = self.all_bids[self.all_bids.index(min([self.getUtility(x) for x in self.all_bids]))]
+        changes_sum = 0
+        for issue in self._issueWeights:
+            changes_sum += sum(self._bidFrequencies[issue].values())
+
 
         # Combine data
         data_to_save = {
             "Issues": issue_data,
             "Reservation": self._resBid,
-            "Bids Exchanged": self._totalChanges + sum(self._bidFrequencies.values())
+            "Bids Exchanged": self._totalChanges + changes_sum
         }
 
         # Save to file
@@ -258,7 +266,7 @@ class FrequencyOpponentModelGroup69(UtilitySpace, OpponentModel):
         for issue, issue_info in previous_issue_data.items():
             # Update issue weights
             if 'Weight' in issue_info:
-                self._issueWeights[issue] = Decimal(issue_info['Weight'])
+                self._pastIssues[issue] = Decimal(issue_info['Weight'])
 
             # Update value frequencies
             value_utilities = issue_info.get('DiscreteValueSetUtilities', {}).get('valueUtilities', {})
@@ -268,11 +276,10 @@ class FrequencyOpponentModelGroup69(UtilitySpace, OpponentModel):
                     self._bidFrequencies[issue] = {}
 
                 # Estimate frequency based on utility and previous rounds
-                estimated_count = int(utility * previous_total_bids)
                 if value in self._bidFrequencies[issue]:
-                    self._bidFrequencies[issue][value] += estimated_count
+                    self._bidFrequencies[issue][value] += utility
                 else:
-                    self._bidFrequencies[issue][value] = estimated_count
+                    self._bidFrequencies[issue][value] = utility
 
         print("Data successfully read and integrated from JSON file.")
 
