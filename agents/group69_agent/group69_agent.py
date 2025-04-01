@@ -230,6 +230,12 @@ class Agent69(DefaultParty):
     ###########################################################################################
 
     def accept_condition(self, bid: Bid) -> bool:
+        """
+        Acceptance condition for the agent.
+        Accept the bid if the utility is above the base reservation value.
+        If the negotiation is in the last 40% of the time, accept the bid if the utility is above the
+        current reservation value.
+        """
         if bid is None:
             return False
 
@@ -245,6 +251,12 @@ class Agent69(DefaultParty):
         return crt_utility >= self.current_reservation
 
     def get_acceptable_utility(self):
+        """
+        Calculate the acceptable utility for the agent, based on the progress of the negotiation
+        and the opponent's strategy.
+        If the opponent is hardballing, decrease by a bigger factor for each tick (concede more quickly)
+        If the opponent is not hardballing, decrease by a smaller factor for each tick (concede less quickly)
+        """
         progress = self.progress.get(time() * 1000)
         hardball = self.is_opponent_hardball()
 
@@ -253,18 +265,26 @@ class Agent69(DefaultParty):
 
         # current solution: still decrease, but adapt more to the opponent's strategy (hardballing or not)
 
-        if(hardball): # If opponent is hardballing, we need to concede more quickly
+        if hardball: # If opponent is hardballing, we need to concede more quickly
             return self.current_reservation - 0.0001*0.4 # 0.0001 is the change between ticks (1 ms)
                                                         # assuming we update each tick
         else: # If opponent is not hardballing, we can be more strict
             return self.current_reservation - 0.0001*0.25
 
     def is_opponent_hardball(self):
-        opponent_last_bids = np.array([ self.opponent_model.getUtility(x) for x in self.opponent_model.all_bids[-40:]])
-        max_ut_opp = np.max(opponent_last_bids)
-        min_ut_opp = np.min(opponent_last_bids)
-
-        return max_ut_opp - min_ut_opp < 0.1
+        """
+        Check if the opponent is hardballing
+        return: a boolean that checks that:
+            - the difference between the first 15% of the last 100 bids and the last 15% of the last 100 bids is less than 0.1
+            - the bids are not generally decreasing (more than 60% of the time)
+        if the criteria are met, the opponent is hardballing.
+        """
+        opponent_last_bids = np.array([ self.opponent_model.getUtility(x) for x in self.opponent_model.all_bids[-100:]])
+        decreasing = [(1 if x < 0 else 0) for x in np.diff(opponent_last_bids)]
+        is_generally_decreasing = np.count_nonzero(decreasing)> 60
+        first_max = np.max(opponent_last_bids[:15])
+        last_min = np.min(opponent_last_bids[-15:])
+        return first_max - last_min < 0.1 and not is_generally_decreasing
 
     def find_bid(self) -> Bid:
         # compose a list of all possible bids
