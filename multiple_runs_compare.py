@@ -2,7 +2,7 @@ import subprocess
 import re
 import plotly.graph_objects as go
 
-NUM_RUNS = 20
+NUM_RUNS = 30
 utilities = []
 
 for i in range(NUM_RUNS):
