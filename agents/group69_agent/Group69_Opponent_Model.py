@@ -35,6 +35,7 @@ class FrequencyOpponentModelGroup69(UtilitySpace, OpponentModel):
                  freqs: Dict[str, Dict[Value, int]], total: int,
                  resBid: Optional[Bid], change_freqs: Dict[str, int],
                  prev_value: Dict[str, Value], agent69_prev_value: Dict[str, Value], issue_weights: Dict[str, Decimal],
+                 past_issues: Dict[str, Decimal],
                  all_bids: [Bid], total_changes: int
                  ):
         '''
@@ -60,13 +61,13 @@ class FrequencyOpponentModelGroup69(UtilitySpace, OpponentModel):
         self._previousIssuesValue = prev_value
         self._ourPreviousIssuesValues = agent69_prev_value
         self._issueWeights = issue_weights
-        self._pastIssues = {}
+        self._pastIssues = past_issues
         self.all_bids = all_bids
 
     @staticmethod
     def create() -> "FrequencyOpponentModelGroup69":
 
-        return FrequencyOpponentModelGroup69(None, {}, 0, None, {}, {},{}, {}, [], 0)
+        return FrequencyOpponentModelGroup69(None, {}, 0, None, {}, {},{}, {}, {}, [], 0)
 
     # Override
     def With(self, newDomain: Domain, newResBid: Optional[Bid]) -> "FrequencyOpponentModelGroup69":
@@ -78,7 +79,7 @@ class FrequencyOpponentModelGroup69(UtilitySpace, OpponentModel):
                                              0, newResBid, {iss: 0 for iss in newDomain.getIssues()},
                                              {iss: None for iss in newDomain.getIssues()},
                                              {iss: None for iss in newDomain.getIssues()},
-                                             {iss: Decimal(0) for iss in newDomain.getIssues()},
+                                             {iss: Decimal(0) for iss in newDomain.getIssues()},{iss: Decimal(0) for iss in newDomain.getIssues()},
                                              [], total_changes=0)
 
     # Override
@@ -119,14 +120,15 @@ class FrequencyOpponentModelGroup69(UtilitySpace, OpponentModel):
             freqs: Dict[Value, int] = newFreqs[issue]
             value = bid.getValue(issue)
             if value != None:
+                matched_value = next((k for k in freqs.keys() if value.getValue() == k.getValue()), None)
                 oldfreq = 0
-                if value in freqs:
-                    oldfreq = freqs[value]
+                if matched_value is not None:
+                    oldfreq = freqs[matched_value]
                 # calculate value frequency
                 freqs[value] = oldfreq + 1
 
                 # update the changes in values
-                if self._previousIssuesValue[issue] != value:
+                if self._previousIssuesValue[issue] != matched_value:
                     self._frequencyChangePerIssue[issue] = self._frequencyChangePerIssue[issue] + 1
                     self._previousIssuesValue[issue] = value
 
@@ -137,21 +139,22 @@ class FrequencyOpponentModelGroup69(UtilitySpace, OpponentModel):
             counter_response_weight = Decimal(0)
             if (self._ourPreviousIssuesValues[issue] is not None
                     and self._ourPreviousIssuesValues[issue] != bid.getValue(issue)):
-                counter_response_weight = Decimal(0.2)
+                counter_response_weight = Decimal(0.3)
 
             weight = (FrequencyOpponentModelGroup69._ALPHA * frequency_weight
                       + FrequencyOpponentModelGroup69._BETA * counter_response_weight)
-            gamma = Decimal(0.7)
+            gamma = Decimal(0.3)
             combined_weight = gamma*self._pastIssues.get(issue, Decimal(0)) + (1-gamma)*weight
             self._issueWeights[issue] = combined_weight
             total_weight += combined_weight
+
         for issue in self._issueWeights.keys():
             self._issueWeights[issue] = self._issueWeights[issue]/total_weight
 
         return FrequencyOpponentModelGroup69(self._domain, newFreqs,
                                              self._totalBids + 1, self._resBid, dict(self._frequencyChangePerIssue),
                                              dict(self._previousIssuesValue), dict(self._ourPreviousIssuesValues),
-                                             dict(self._issueWeights), list(self.all_bids), self._totalChanges)
+                                             dict(self._issueWeights), dict(self._pastIssues), list(self.all_bids), self._totalChanges)
     def WithMyAction(self, action: Action, progress: Progress) -> "FrequencyOpponentModelGroup69":
         if self._domain == None:
             raise ValueError("domain is not initialized")
@@ -165,9 +168,9 @@ class FrequencyOpponentModelGroup69(UtilitySpace, OpponentModel):
             ourValues[issue] = bid.getValue(issue)
 
         return FrequencyOpponentModelGroup69(self._domain, dict(self._bidFrequencies),
-                                             self._totalBids + 1, self._resBid, dict(self._frequencyChangePerIssue),
+                                             self._totalBids, self._resBid, dict(self._frequencyChangePerIssue),
                                              dict(self._previousIssuesValue), ourValues,
-                                             dict(self._issueWeights), list(self.all_bids), self._totalChanges)
+                                             dict(self._issueWeights), dict(self._pastIssues), list(self.all_bids), self._totalChanges)
     def getCounts(self, issue: str) -> Dict[Value, int]:
         '''
         @param issue the issue to get frequency info for
@@ -229,20 +232,20 @@ class FrequencyOpponentModelGroup69(UtilitySpace, OpponentModel):
             }
 
         # self._resBid = self.all_bids[self.all_bids.index(min([self.getUtility(x) for x in self.all_bids]))]
-        changes_sum = 0
-        for issue in self._issueWeights:
-            changes_sum += sum(self._bidFrequencies[issue].values())
+
+
+        print('saved data in file json')
 
 
         # Combine data
         data_to_save = {
             "Issues": issue_data,
             "Reservation": self._resBid,
-            "Bids Exchanged": self._totalChanges + changes_sum
+            "Bids Exchanged": self._totalBids
         }
 
         # Save to file
-        file_path = os.path.join(storage_dir, f"{other}_data.json")
+        file_path = os.path.join(storage_dir, f"{other}_data_{self._domain.getName()}.json")
         with open(file_path, "w") as f:
             json.dump(data_to_save, f, indent=4)
 
@@ -258,9 +261,9 @@ class FrequencyOpponentModelGroup69(UtilitySpace, OpponentModel):
             data = json.load(f)
 
         previous_total_bids = data.get('Bids Exchanged', 0)
-        self._totalChanges = previous_total_bids
+        # self._totalBids = previous_total_bids
         previous_issue_data = data.get('Issues', {})
-        self._resBid = data.get('Reservation', None)
+        # self._resBid = data.get('Reservation', None)
 
         # Update frequencies and weights
         for issue, issue_info in previous_issue_data.items():
@@ -268,18 +271,18 @@ class FrequencyOpponentModelGroup69(UtilitySpace, OpponentModel):
             if 'Weight' in issue_info:
                 self._pastIssues[issue] = Decimal(issue_info['Weight'])
 
-            # Update value frequencies
-            value_utilities = issue_info.get('DiscreteValueSetUtilities', {}).get('valueUtilities', {})
-            for value_str, utility in value_utilities.items():
-                value = Value(value_str)
-                if issue not in self._bidFrequencies:
-                    self._bidFrequencies[issue] = {}
-
-                # Estimate frequency based on utility and previous rounds
-                if value in self._bidFrequencies[issue]:
-                    self._bidFrequencies[issue][value] += utility
-                else:
-                    self._bidFrequencies[issue][value] = utility
+            # # Update value frequencies
+            # value_utilities = issue_info.get('DiscreteValueSetUtilities', {}).get('valueUtilities', {})
+            # for value_str, utility in value_utilities.items():
+            #     value = Value(value_str)
+            #     if issue not in self._bidFrequencies:
+            #         self._bidFrequencies[issue] = {}
+            #
+            #     # Estimate frequency based on utility and previous rounds
+            #     if value in self._bidFrequencies[issue]:
+            #         self._bidFrequencies[issue][value] += utility
+            #     else:
+            #         self._bidFrequencies[issue][value] = utility
 
         print("Data successfully read and integrated from JSON file.")
 
