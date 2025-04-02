@@ -139,7 +139,7 @@ class FrequencyOpponentModelGroup69(UtilitySpace, OpponentModel):
             counter_response_weight = Decimal(0)
             if (self._ourPreviousIssuesValues[issue] is not None
                     and self._ourPreviousIssuesValues[issue] != bid.getValue(issue)):
-                counter_response_weight = Decimal(0.2)
+                counter_response_weight = Decimal(0.3)
 
             weight = (FrequencyOpponentModelGroup69._ALPHA * frequency_weight
                       + FrequencyOpponentModelGroup69._BETA * counter_response_weight)
@@ -245,7 +245,7 @@ class FrequencyOpponentModelGroup69(UtilitySpace, OpponentModel):
         }
 
         # Save to file
-        file_path = os.path.join(storage_dir, f"{other}_data.json")
+        file_path = os.path.join(storage_dir, f"{other}_data_{self._domain.getName()}.json")
         with open(file_path, "w") as f:
             json.dump(data_to_save, f, indent=4)
 

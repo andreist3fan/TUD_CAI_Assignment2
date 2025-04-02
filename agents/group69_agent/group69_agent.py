@@ -111,13 +111,13 @@ class TemplateAgent(DefaultParty):
             action = cast(ActionDone, data).getAction()
             actor = action.getActor()
             if isinstance(action, Accept):
-                print(f"We accepted at utility: {self.profile.getUtility(self.last_sent_bid)}")
+                print(f"We accepted at utility: {self.profile.getUtility(self.last_sent_bid[1])}")
             # ignore action if it is our action
             if actor != self.me:
                 # obtain the name of the opponent, cutting of the position ID.
                 self.other = str(actor).rsplit("_", 1)[0]
                 if not self.updated:
-                    file_path = os.path.join(str(self.storage_dir), f"{self.other}_data.json")
+                    file_path = os.path.join(str(self.storage_dir), f"{self.other}_data_{self.domain.getName()}.json")
                     # if we want to learn across negotiations for testing purposes can be commented out
                     self.opponent_model.read_data(file_path)
                     self.updated = True
