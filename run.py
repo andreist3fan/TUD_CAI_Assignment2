@@ -19,17 +19,31 @@ if not RESULTS_DIR.exists():
 settings = {
     "agents": [
         {
+            "class": "agents.hardliner_agent.hardliner_agent.HardlinerAgent",
+            "parameters": {"storage_dir": "agent_storage/TemplateAgent"},
+        },
+        {
             "class": "agents.group69_agent.group69_agent.TemplateAgent",
             "parameters": {"storage_dir": "agent_storage/TemplateAgent69"},
         },
-        {
-            "class": "agents.ANL2022.dreamteam109_agent.dreamteam109_agent.DreamTeam109Agent",
-            "parameters": {"storage_dir": "agent_storage/TemplateAgent"},
-        },
+
     ],
     "profiles": ["domains/domain00/profileA.json", "domains/domain00/profileB.json"],
     "deadline_time_ms": 10000,
 }
+
+# {
+#             "class": "agents.conceder_agent.conceder_agent.ConcederAgent",
+#             "parameters": {"storage_dir": "agent_storage/TemplateAgent"},
+#         }
+# {
+#             "class": "agents.boulware_agent.boulware_agent.BoulwareAgent",
+#             "parameters": {"storage_dir": "agent_storage/TemplateAgent"},
+#         },
+# {
+#             "class": "agents.hardliner_agent.hardliner_agent.HardlinerAgent",
+#             "parameters": {"storage_dir": "agent_storage/TemplateAgent"},
+#         }
 
 # run a session and obtain results in dictionaries
 session_results_trace, session_results_summary = run_session(settings)
