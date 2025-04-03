@@ -10,6 +10,7 @@ from geniusweb.actions.Accept import Accept
 from geniusweb.actions.Action import Action
 from geniusweb.actions.Offer import Offer
 from geniusweb.actions.PartyId import PartyId
+from geniusweb.actions.EndNegotiation import EndNegotiation
 from geniusweb.bidspace.AllBidsList import AllBidsList
 from geniusweb.inform.ActionDone import ActionDone
 from geniusweb.inform.Finished import Finished
@@ -61,7 +62,7 @@ class Agent69(DefaultParty):
 
         self.sorted_all_bids = None
         self.last_sent_bid: Bid = None
-        self.sorted_weights: list = None
+        self.remaining_bids = []
         self.sent_bids = []
         self.last_index = 0
 
@@ -101,7 +102,8 @@ class Agent69(DefaultParty):
             )
             self.profile = profile_connection.getProfile()
             self.domain = self.profile.getDomain()
-            self.sort_bids(1.01, 0.9)
+            self.stock_bids()
+            self.get_bids_within_range(0.9)
             self.opponent_model = FrequencyOpponentModelGroup69.create()
             self.opponent_model = self.opponent_model.With(self.domain, None)
             profile_connection.close()
@@ -112,7 +114,7 @@ class Agent69(DefaultParty):
             action = cast(ActionDone, data).getAction()
             actor = action.getActor()
             if isinstance(action, Accept):
-                print(f"We accepted at utility: {self.profile.getUtility(self.last_sent_bid[1])}")
+                print(f"We accepted at utility: {self.profile.getUtility(self.last_sent_bid)}")
             # ignore action if it is our action
             if actor != self.me:
                 # obtain the name of the opponent, cutting of the position ID.
@@ -120,7 +122,7 @@ class Agent69(DefaultParty):
                 if not self.updated:
                     file_path = os.path.join(str(self.storage_dir), f"{self.other}_data_{self.domain.getName()}.json")
                     # if we want to learn across negotiations for testing purposes can be commented out
-                    self.opponent_model.read_data(file_path)
+                    # self.opponent_model.read_data(file_path)
                     self.updated = True
                 # process action done by opponent
                 self.opponent_action(action)
@@ -201,7 +203,11 @@ class Agent69(DefaultParty):
         else:
             # if not, find a bid to propose as counter offer
             bid = self.find_bid()
-            action = Offer(self.me, bid)
+            if bid is None:
+                action = EndNegotiation(self.me)
+                print("Ended negotiation without reaching a consensus")
+            else:
+                action = Offer(self.me, bid)
             self.opponent_model = self.opponent_model.WithMyAction(action, self.progress)
 
         # send the action
@@ -288,44 +294,56 @@ class Agent69(DefaultParty):
         domain = self.profile.getDomain()
         progress = self.progress.get(time() * 1000)
 
-        if self.sorted_weights is None:
-            self.sort_weights()
-
         # First bid: send highest utility
-        if self.last_received_bid is None:
-            self.sorted_weights = self.profile.getWeights()
+        if self.last_sent_bid is None:
             top_bid = max(AllBidsList(domain), key=self.profile.getUtility)
-            self.last_sent_bid = (self.profile.getUtility(top_bid), top_bid)
+            self.last_sent_bid = top_bid
             self.sent_bids.append(self.last_sent_bid)
             return top_bid
 
         # Phase 1: Boulware greedy start
         if progress <= 0.15:
             min_utility = 0.9
-            while True:
-                self.sort_bids(min_utility, min_utility - 0.05)
-                if self.sorted_all_bids:
-                    break
+            while self.sorted_all_bids is None or len(self.sorted_all_bids) == 0:
+                self.get_bids_within_range(min_utility - 0.05)
                 min_utility -= 0.05
 
-            bid_tuple = random.choice(self.sorted_all_bids)
-            self.sorted_all_bids.remove(bid_tuple)
-            self.last_sent_bid = bid_tuple
-            self.sent_bids.append(bid_tuple)
-            return bid_tuple[1]
+            bid = random.choice(self.sorted_all_bids)
+            self.sorted_all_bids.remove(bid)
+            self.last_sent_bid = bid
+            self.sent_bids.append(bid)
+            return bid
+
 
         # Phase 2: Use opponent model and search best bid
-        if progress <= 0.75:
-            bid = self.choose_best_bid()
+        elif progress <= 0.75:
+            bid = self.choose_best_bid(progress)
+            if bid is None:
+                self.stock_bids()
+                bid = self.choose_best_bid(progress)
+
+        # Phase 3: Use opponent model and search for a bid with the mean utility
         else:
-            our_utility = self.score_bid(self.last_sent_bid[1])
+            our_utility = self.score_bid(self.last_sent_bid)
             their_utility = self.score_bid(self.last_received_bid)
             target = np.mean([our_utility, their_utility])
-            bid = self.choose_suitable_bid(target)
-
-        self.last_sent_bid = (self.score_bid(bid), bid)
+            bid = self.choose_suitable_bid(target, progress)
+            if bid is None:
+                self.stock_bids()
+                bid = self.choose_suitable_bid(target, progress)
+        if bid is None:
+            return bid
+        self.remaining_bids.remove(bid)
+        self.last_sent_bid = bid
         self.sent_bids.append(self.last_sent_bid)
         return bid
+
+    def stock_bids(self):
+        self.remaining_bids = []
+        self.sent_bids = []
+        all_bids = AllBidsList(self.domain)
+        for i in range(all_bids.size()):
+            self.remaining_bids.append(all_bids.get(i))
 
     def score_bid(self, bid: Bid, alpha: float = 0.95, eps: float = 0.1) -> float:
         progress = self.progress.get(time() * 1000)
@@ -339,35 +357,53 @@ class Agent69(DefaultParty):
 
         return score
 
-    def sort_weights(self):
-        self.sorted_weights = sorted(
-            self.profile.getWeights().items(), key=lambda x: x[1]
-        )
+    # def place_bids_in_bins(self):
+    #     all_bids = AllBidsList(self.domain)
+    #     self.sorted_all_bids = []
+    #     for i in range(20):
+    #         self.sorted_all_bids.append([])
+    #
+    #     for j in range(all_bids.size()):
+    #         bid = all_bids.get(j)
+    #         utility = self.score_bid(bid)
+    #         index = int(utility * 20)
+    #         if index == 20:
+    #             index = 19
+    #         self.sorted_all_bids[index].append(bid)
 
-    def sort_bids(self, high: float, low: float):
+    def get_bids_within_range(self, low: float):
         all_bids = AllBidsList(self.domain)
-        self.sorted_all_bids = [
-            (self.score_bid(bid), bid) for bid in all_bids if high > self.score_bid(bid) >= low
-        ]
-        self.sorted_all_bids.sort(key=lambda x: x[0], reverse=True)
+        self.sorted_all_bids = []
+        for i in range(all_bids.size()):
+            cur_bid = all_bids.get(i)
+            cur_util = self.profile.getUtility(cur_bid)
+            if cur_util >= low and self.profile.getUtility(cur_bid) > 0.7:
+                self.sorted_all_bids.append(cur_bid)
 
-    def choose_best_bid(self) -> Bid:
-        all_bids = AllBidsList(self.domain)
-        best = max(
-            ((self.score_bid(bid), bid) for bid in all_bids if
-             bid not in [b[1] for b in self.sent_bids] and self.score_bid(bid) > 0.5),
-            default=(0, None), key=lambda x: x[0]
-        )
-        return best[1] if best[1] else random.choice(list(AllBidsList(self.domain)))
+    def choose_best_bid(self, progress) -> Bid:
+        rem_bids = self.remaining_bids
+        bid = None
+        util = 0
+        for cur_bid in rem_bids:
+            cur_util = self.score_bid(cur_bid)
+            if util < cur_util and self.profile.getUtility(cur_bid) > 0.7:
+                util = cur_util
+                bid = cur_bid
+        return bid
 
-    def choose_suitable_bid(self, target_util: float) -> Bid:
-        all_bids = AllBidsList(self.domain)
-        suitable = min(
-            ((abs(self.score_bid(bid) - target_util), bid) for bid in all_bids if
-             bid not in [b[1] for b in self.sent_bids] and self.score_bid(bid) > 0.5),
-            default=(float('inf'), None), key=lambda x: x[0]
-        )
-        return suitable[1] if suitable[1] else random.choice(list(AllBidsList(self.domain)))
+    def choose_suitable_bid(self, target_util: float, progress) -> Bid:
+        rem_bids = self.remaining_bids
+        bid = None
+        max_util = 0
+        util = np.inf
+        for cur_bid in rem_bids:
+            cur_util = self.score_bid(cur_bid)
+            if util > abs(target_util - cur_util) and self.profile.getUtility(cur_bid) > 0.7 and not (
+            self.sent_bids.__contains__(cur_bid)):
+                util = cur_util
+                bid = cur_bid
+            if max_util < cur_util: max_util = cur_util
+        return bid
 
     # def find_bid(self) -> Bid:
     #     # compose a list of all possible bids
