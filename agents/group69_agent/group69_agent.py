@@ -72,7 +72,9 @@ class Agent69(DefaultParty):
 
         self.base_reservation = 0.9
         self.current_reservation = 0.9
-        self.modelling_time = 0.6
+        self.modelling_time = 0.25
+        self.tick_decrease_hardball = 0.55
+        self.tick_decrease_normal = 0.35
         self.updated = False
 
     def notifyChange(self, data: Inform):
@@ -115,6 +117,8 @@ class Agent69(DefaultParty):
             actor = action.getActor()
             if isinstance(action, Accept):
                 print(f"We accepted at utility: {self.profile.getUtility(self.last_sent_bid)}")
+            elif not isinstance(action, Offer):
+                print(f"Received action: {action} (probably rejected by {actor})")
             # ignore action if it is our action
             if actor != self.me:
                 # obtain the name of the opponent, cutting of the position ID.
@@ -261,19 +265,23 @@ class Agent69(DefaultParty):
         If the opponent is hardballing, decrease by a bigger factor for each tick (concede more quickly)
         If the opponent is not hardballing, decrease by a smaller factor for each tick (concede less quickly)
         """
-        progress = self.progress.get(time() * 1000)
-        hardball = self.is_opponent_hardball()
 
+        hardball = self.is_opponent_hardball()
+        # if hardball:
+        #     print("Opponent is hardballing")
+        #
         # previous solution: linear decrease from 0.9 to 0.5 or 0.4 (depending if the opponent is hardballing)
+        # progress = self.progress.get(time() * 1000)
         #linear_decrease = (progress-self.modelling_time)/(1-self.modelling_time)
 
-        # current solution: still decrease, but adapt more to the opponent's strategy (hardballing or not)
+        # current solution: still decrease, but adapt more to the opponent's strategy without
+        # any drastic changes (hardballing or not)
 
         if hardball: # If opponent is hardballing, we need to concede more quickly
-            return self.current_reservation - 0.0001*0.4 # 0.0001 is the change between ticks (1 ms)
+            return self.current_reservation - 0.0001*self.tick_decrease_hardball # 0.0001 is the change between ticks (1 ms)
                                                         # assuming we update each tick
         else: # If opponent is not hardballing, we can be more strict
-            return self.current_reservation - 0.0001*0.25
+            return self.current_reservation - 0.0001*self.tick_decrease_normal
 
     def is_opponent_hardball(self):
         """
