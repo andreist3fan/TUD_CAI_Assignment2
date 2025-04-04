@@ -82,8 +82,6 @@ class Agent69(DefaultParty):
         self.updated = False
         self.crt_prog = None
         self.prev_prog = None
-        self.issues_to_consider = []
-        self.predefined_issue_values: Dict[str, Value] = {}
 
     def notifyChange(self, data: Inform):
         """MUST BE IMPLEMENTED
@@ -116,9 +114,6 @@ class Agent69(DefaultParty):
             self.get_bids_within_range(0.9)
             self.opponent_model = FrequencyOpponentModelGroup69.create()
             self.opponent_model = self.opponent_model.With(self.domain, None)
-            for issue in self.domain.getIssues():
-                if self.profile.getWeight(issue) < 0.1:
-                    self.issues_to_consider.append(issue)
             profile_connection.close()
 
         # ActionDone informs you of an action (an offer or an accept)
@@ -156,7 +151,7 @@ class Agent69(DefaultParty):
             self.save_data()
             # terminate the agent MUST BE CALLED
             self.logger.log(logging.INFO, "party is terminating:")
-            print(f"Negotiation TLEd with last utility: {self.profile.getUtility(self.last_sent_bid)}")
+            # print(f"Negotiation TLEd with last utility: {self.profile.getUtility(self.last_sent_bid)}")
             super().terminate()
         else:
             self.logger.log(logging.WARNING, "Ignoring unknown info " + str(data))
@@ -223,12 +218,6 @@ class Agent69(DefaultParty):
             action = Accept(self.me, self.last_received_bid)
         else:
             # if not, find a bid to propose as counter offer
-            frequencies = self.opponent_model.getFrequencies()
-            for issue in frequencies.keys():
-                if issue in self.issues_to_consider:
-                    if len(frequencies[issue])>0:
-                        self.predefined_issue_values[issue] = max(frequencies[issue], key=frequencies[issue].get)
-
             bid = self.find_bid()
             if bid is None:
                 action = EndNegotiation(self.me)
@@ -387,12 +376,7 @@ class Agent69(DefaultParty):
         all_bids = AllBidsList(self.domain)
         for i in range(all_bids.size()):
             bid = all_bids.get(i)
-            if self.predefined_issue_values:
-                match = all(bid.getValue(issue) == val for issue, val in self.predefined_issue_values.items())
-                if match:
-                    self.remaining_bids.append(bid)
-            else:
-                self.remaining_bids.append(bid)
+            self.remaining_bids.append(bid)
 
     def score_bid(self, bid: Bid, alpha: float = 0.95, eps: float = 0.1) -> float:
         progress = self.progress.get(time() * 1000)
@@ -406,44 +390,24 @@ class Agent69(DefaultParty):
 
         return score
 
-    # def place_bids_in_bins(self):
-    #     all_bids = AllBidsList(self.domain)
-    #     self.sorted_all_bids = []
-    #     for i in range(20):
-    #         self.sorted_all_bids.append([])
-    #
-    #     for j in range(all_bids.size()):
-    #         bid = all_bids.get(j)
-    #         utility = self.score_bid(bid)
-    #         index = int(utility * 20)
-    #         if index == 20:
-    #             index = 19
-    #         self.sorted_all_bids[index].append(bid)
-
     def get_bids_within_range(self, low: float):
         all_bids = AllBidsList(self.domain)
         self.sorted_all_bids = []
         for i in range(all_bids.size()):
             cur_bid = all_bids.get(i)
             cur_util = self.profile.getUtility(cur_bid)
-            if self.predefined_issue_values:
-                match = all(cur_bid.getValue(issue) == val for issue, val in self.predefined_issue_values.items())
-                if match:
-                    if cur_util >= low and self.profile.getUtility(cur_bid) > 0.7:
-                        self.sorted_all_bids.append(cur_bid)
+            if cur_util >= low and self.profile.getUtility(cur_bid) > 0.7:
+                self.sorted_all_bids.append(cur_bid)
 
     def choose_best_bid(self, progress) -> Bid:
         rem_bids = self.remaining_bids
         bid = None
         util = 0
         for cur_bid in rem_bids:
-            if self.predefined_issue_values:
-                match = all(cur_bid.getValue(issue) == val for issue, val in self.predefined_issue_values.items())
-                if match:
-                    cur_util = self.score_bid(cur_bid)
-                    if util < cur_util and self.profile.getUtility(cur_bid) > 0.7:
-                        util = cur_util
-                        bid = cur_bid
+            cur_util = self.score_bid(cur_bid)
+            if util < cur_util and self.profile.getUtility(cur_bid) > 0.7:
+                util = cur_util
+                bid = cur_bid
         return bid
 
     def choose_suitable_bid(self, target_util: float, progress) -> Bid:
@@ -452,15 +416,12 @@ class Agent69(DefaultParty):
         max_util = 0
         util = np.inf
         for cur_bid in rem_bids:
-            if self.predefined_issue_values:
-                match = all(cur_bid.getValue(issue) == val for issue, val in self.predefined_issue_values.items())
-                if match:
-                    cur_util = self.score_bid(cur_bid)
-                    if util > abs(target_util - cur_util) and self.profile.getUtility(cur_bid) > 0.7 and not (
-                    self.sent_bids.__contains__(cur_bid)):
-                        util = cur_util
-                        bid = cur_bid
-                    if max_util < cur_util: max_util = cur_util
+            cur_util = self.score_bid(cur_bid)
+            if util > abs(target_util - cur_util) and self.profile.getUtility(cur_bid) > 0.7 and not (
+            self.sent_bids.__contains__(cur_bid)):
+                util = cur_util
+                bid = cur_bid
+            if max_util < cur_util: max_util = cur_util
         return bid
 
     # def find_bid(self) -> Bid:
