@@ -3,7 +3,7 @@ import random
 import os
 from random import randint
 from time import time
-from typing import cast
+from typing import cast, Dict
 
 import numpy as np
 from geniusweb.actions.Accept import Accept
@@ -17,6 +17,7 @@ from geniusweb.inform.Finished import Finished
 from geniusweb.inform.Inform import Inform
 from geniusweb.inform.Settings import Settings
 from geniusweb.inform.YourTurn import YourTurn
+from geniusweb.issuevalue.Value import Value
 from geniusweb.issuevalue.Bid import Bid
 from geniusweb.issuevalue.Domain import Domain
 from geniusweb.party.Capabilities import Capabilities
@@ -69,10 +70,13 @@ class TemplateAgent(DefaultParty):
         self.last_received_bid: Bid = None
         self.opponent_model: FrequencyOpponentModelGroup69 = None
         self.logger.log(logging.INFO, "party is initialized")
+        self.times_worse_bids = 0
 
         self.base_reservation = 0.9
         self.modelling_time = 0.6
         self.updated = False
+        self.issues_to_consider = []
+        self.predefined_issue_values: Dict[str, Value] = {}
 
     def notifyChange(self, data: Inform):
         """MUST BE IMPLEMENTED
@@ -105,6 +109,9 @@ class TemplateAgent(DefaultParty):
             self.get_bids_within_range(0.9)
             self.opponent_model = FrequencyOpponentModelGroup69.create()
             self.opponent_model = self.opponent_model.With(self.domain, None)
+            for issue in self.domain.getIssues():
+                if self.profile.getWeight(issue) < 0.1:
+                    self.issues_to_consider.append(issue)
             profile_connection.close()
 
         # ActionDone informs you of an action (an offer or an accept)
@@ -113,7 +120,7 @@ class TemplateAgent(DefaultParty):
             action = cast(ActionDone, data).getAction()
             actor = action.getActor()
             if isinstance(action, Accept):
-                print(f"We accepted at utility: {self.profile.getUtility(self.last_sent_bid)}")
+                print(f"They accepted at utility: {self.profile.getUtility(self.last_sent_bid)}")
             # ignore action if it is our action
             if actor != self.me:
                 # obtain the name of the opponent, cutting of the position ID.
@@ -121,7 +128,7 @@ class TemplateAgent(DefaultParty):
                 if not self.updated:
                     file_path = os.path.join(str(self.storage_dir), f"{self.other}_data_{self.domain.getName()}.json")
                     # if we want to learn across negotiations for testing purposes can be commented out
-                    # self.opponent_model.read_data(file_path)
+                    self.opponent_model.read_data(file_path)
                     self.updated = True
                 # process action done by opponent
                 self.opponent_action(action)
@@ -201,10 +208,20 @@ class TemplateAgent(DefaultParty):
             action = Accept(self.me, self.last_received_bid)
         else:
             # if not, find a bid to propose as counter offer
+            frequencies = self.opponent_model.getFrequencies()
+            for issue in frequencies.keys():
+                if issue in self.issues_to_consider:
+                    self.predefined_issue_values[issue] = max(frequencies[issue], key=frequencies[issue].get)
+
             bid = self.find_bid()
             if bid is None:
                 action = EndNegotiation(self.me)
                 print("Ended negotiation without reaching a consensus")
+            elif self.last_received_bid is not None and self.score_bid(bid) < self.score_bid(self.last_received_bid):
+                self.times_worse_bids += 1
+                if self.times_worse_bids > 3:
+                    print(f"We accepted at utility because we were going to give a worse bid: {self.profile.getUtility(self.last_received_bid)}")
+                    action = Accept(self.me, self.last_received_bid)
             else:
                 action = Offer(self.me, bid)
             self.opponent_model = self.opponent_model.WithMyAction(action, self.progress)
@@ -290,6 +307,7 @@ class TemplateAgent(DefaultParty):
 
         # Phase 2: Use opponent model and search best bid
         elif progress <= 0.75:
+
             bid = self.choose_best_bid(progress)
             if bid is None:
                 self.stock_bids()
@@ -316,7 +334,13 @@ class TemplateAgent(DefaultParty):
         self.sent_bids = []
         all_bids = AllBidsList(self.domain)
         for i in range(all_bids.size()):
-            self.remaining_bids.append(all_bids.get(i))
+            bid = all_bids.get(i)
+            if self.predefined_issue_values:
+                match = all(bid.getValue(issue) == val for issue, val in self.predefined_issue_values.items())
+                if match:
+                    self.remaining_bids.append(bid)
+            else:
+                self.remaining_bids.append(bid)
 
     def score_bid(self, bid: Bid, alpha: float = 0.95, eps: float = 0.1) -> float:
         progress = self.progress.get(time() * 1000)
@@ -350,18 +374,24 @@ class TemplateAgent(DefaultParty):
         for i in range(all_bids.size()):
             cur_bid = all_bids.get(i)
             cur_util = self.profile.getUtility(cur_bid)
-            if cur_util >= low and self.profile.getUtility(cur_bid) > 0.7:
-                self.sorted_all_bids.append(cur_bid)
+            if self.predefined_issue_values:
+                match = all(cur_bid.getValue(issue) == val for issue, val in self.predefined_issue_values.items())
+                if match:
+                    if cur_util >= low and self.profile.getUtility(cur_bid) > 0.7:
+                        self.sorted_all_bids.append(cur_bid)
 
     def choose_best_bid(self, progress) -> Bid:
         rem_bids = self.remaining_bids
         bid = None
         util = 0
         for cur_bid in rem_bids:
-            cur_util = self.score_bid(cur_bid)
-            if util < cur_util and self.profile.getUtility(cur_bid) > 0.7:
-                util = cur_util
-                bid = cur_bid
+            if self.predefined_issue_values:
+                match = all(cur_bid.getValue(issue) == val for issue, val in self.predefined_issue_values.items())
+                if match:
+                    cur_util = self.score_bid(cur_bid)
+                    if util < cur_util and self.profile.getUtility(cur_bid) > 0.7:
+                        util = cur_util
+                        bid = cur_bid
         return bid
 
     def choose_suitable_bid(self, target_util: float, progress) -> Bid:
@@ -370,12 +400,15 @@ class TemplateAgent(DefaultParty):
         max_util = 0
         util = np.inf
         for cur_bid in rem_bids:
-            cur_util = self.score_bid(cur_bid)
-            if util > abs(target_util - cur_util) and self.profile.getUtility(cur_bid) > 0.7 and not (
-            self.sent_bids.__contains__(cur_bid)):
-                util = cur_util
-                bid = cur_bid
-            if max_util < cur_util: max_util = cur_util
+            if self.predefined_issue_values:
+                match = all(cur_bid.getValue(issue) == val for issue, val in self.predefined_issue_values.items())
+                if match:
+                    cur_util = self.score_bid(cur_bid)
+                    if util > abs(target_util - cur_util) and self.profile.getUtility(cur_bid) > 0.7 and not (
+                    self.sent_bids.__contains__(cur_bid)):
+                        util = cur_util
+                        bid = cur_bid
+                    if max_util < cur_util: max_util = cur_util
         return bid
 
     # def find_bid(self) -> Bid:

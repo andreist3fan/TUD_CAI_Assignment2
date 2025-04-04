@@ -105,6 +105,9 @@ class FrequencyOpponentModelGroup69(UtilitySpace, OpponentModel):
     def getDomain(self) -> Domain:
         return val(self._domain)
 
+    def getFrequencies(self):
+        return self.cloneMap(self._bidFrequencies)
+
     # Override
     def WithAction(self, action: Action, progress: Progress) -> "FrequencyOpponentModelGroup69":
         if self._domain == None:

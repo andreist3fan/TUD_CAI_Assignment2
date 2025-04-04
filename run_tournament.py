@@ -30,6 +30,27 @@ tournament_settings = {
         {
             "class": "agents.hardliner_agent.hardliner_agent.HardlinerAgent",
         },
+{
+            "class": "agents.random_agent.random_agent.RandomAgent",
+        },
+        {
+            "class": "agents.stupid_agent.stupid_agent.StupidAgent",
+        },
+        {
+            "class": "agents.CSE3210.agent2.agent2.Agent2",
+        },
+        {
+            "class": "agents.CSE3210.agent3.agent3.Agent3",
+        },
+        {
+            "class": "agents.CSE3210.agent7.agent7.Agent7",
+        },
+        {
+            "class": "agents.CSE3210.agent24.agent24.Agent24",
+        },
+        {
+            "class": "agents.CSE3210.agent68.agent68.Agent68",
+        },
     ],
     "profile_sets": [
         ["domains/domain00/profileA.json", "domains/domain00/profileB.json"],
