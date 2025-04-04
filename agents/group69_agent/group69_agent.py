@@ -129,11 +129,9 @@ class Agent69(DefaultParty):
             if actor == self.me and isinstance(action, Accept):
                 self.logger.log(logging.INFO,
                                 f"We have accepted utility:{self.profile.getUtility(self.last_received_bid)}")
-                print(f"We accepted at utility: {self.profile.getUtility(self.last_sent_bid)}")
             elif actor != self.me and isinstance(action, Accept):
                 self.logger.log(logging.INFO,
                                 f"They have accepted utility:{self.profile.getUtility(self.last_sent_bid)}")
-                print(f"They accepted at utility: {self.profile.getUtility(self.last_sent_bid)}")
 
             elif not isinstance(action, Offer):
                 print(f"Received action: {action} (probably rejected by {actor})")
@@ -221,7 +219,7 @@ class Agent69(DefaultParty):
         # check if the last received offer is good enough
         if self.accept_condition(self.last_received_bid):
             # if so, accept the offer
-            print(f"We accepted at utility: {self.profile.getUtility(self.last_received_bid)}")
+            self.logger.log(logging.INFO, f"We accepted at utility: {self.profile.getUtility(self.last_received_bid)} against {self.other}")
             action = Accept(self.me, self.last_received_bid)
         else:
             # if not, find a bid to propose as counter offer
@@ -234,12 +232,14 @@ class Agent69(DefaultParty):
             bid = self.find_bid()
             if bid is None:
                 action = EndNegotiation(self.me)
-                print("Ended negotiation without reaching a consensus")
+                self.logger.log(logging.INFO,
+                                f"Ended negotiation without reaching a consensus against {self.other}")
+
             elif self.last_received_bid is not None and self.score_bid(bid) < self.score_bid(self.last_received_bid):
                 self.times_worse_bids += 1
                 action = Offer(self.me, bid)
                 if self.times_worse_bids > 3:
-                    print(f"We accepted at utility because we were going to give a worse bid: {self.profile.getUtility(self.last_received_bid)}")
+                    self.logger.log(logging.INFO, f"We accepted at utility because we were going to give a worse bid: {self.profile.getUtility(self.last_received_bid)} against {self.other}")
                     action = Accept(self.me, self.last_received_bid)
             else:
                 action = Offer(self.me, bid)
@@ -285,7 +285,7 @@ class Agent69(DefaultParty):
             self.prev_prog = progress
         crt_utility = self.profile.getUtility(bid)
         # print(f"progress: {progress}")
-        print(f" crt prog {self.crt_prog} prev prog {self.prev_prog} ")
+        # print(f" crt prog {self.crt_prog} prev prog {self.prev_prog} ")
         if progress <= self.modelling_time:
             return crt_utility >= self.base_reservation
 
