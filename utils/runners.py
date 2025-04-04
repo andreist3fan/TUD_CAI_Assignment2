@@ -244,10 +244,18 @@ def process_tournament_results(tournament_results):
         for desc, stat in stats.items():
             stat_average = sum(stat) / num_session
             tournament_results_summary[agent][f"avg_{desc}"] = stat_average
+
+        num_agreement = tournament_results_summary[agent]["agreement"]
+        if num_agreement > 0:
+            tournament_results_summary[agent][f"avg_utility_agreement"] = sum(stats["utility"]) / num_agreement
+        else:
+            tournament_results_summary[agent][f"avg_utility_agreement"] = 0
+
         tournament_results_summary[agent]["count"] = num_session
 
     column_order = [
         "avg_utility",
+        "avg_utility_agreement",
         "avg_nash_product",
         "avg_social_welfare",
         "avg_num_offers",
