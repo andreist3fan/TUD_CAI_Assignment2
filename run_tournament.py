@@ -22,6 +22,11 @@ tournament_settings = {
             "parameters": {"storage_dir": "agent_storage/TemplateAgent69"},
         },
         {
+            "class": "agents.group69_agent.test_agent_69.Agent69",
+            "parameters": {"storage_dir": "agent_storage/test_Agent69"},
+        },
+
+        {
             "class": "agents.boulware_agent.boulware_agent.BoulwareAgent",
         },
         {
