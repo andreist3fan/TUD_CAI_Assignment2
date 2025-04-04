@@ -17,10 +17,10 @@ if not RESULTS_DIR.exists():
 #   You need to specify a time deadline (is milliseconds (ms)) we are allowed to negotiate before we end without agreement.
 tournament_settings = {
     "agents": [
-        # {
-        #     "class": "agents.group69_agent.group69_agent.Agent69",
-        #     "parameters": {"storage_dir": "agent_storage/TemplateAgent69"},
-        # },
+        {
+            "class": "agents.group69_agent.group69_agent.Agent69",
+            "parameters": {"storage_dir": "agent_storage/TemplateAgent69"},
+        },
         {
             "class": "agents.group69_agent.test_agent_69.Agent69_test",
             "parameters": {"storage_dir": "agent_storage/test_Agent69"},
@@ -29,15 +29,15 @@ tournament_settings = {
         #     "class": "agents.group69_agent.frst_working_iteration.Agent69_first",
         #     "parameters": {"storage_dir": "agent_storage/first_Agent69"},
         # },
-        # {
-        #     "class": "agents.boulware_agent.boulware_agent.BoulwareAgent",
-        # },
+        {
+            "class": "agents.boulware_agent.boulware_agent.BoulwareAgent",
+        },
         {
             "class": "agents.conceder_agent.conceder_agent.ConcederAgent",
         },
-        # {
-        #     "class": "agents.hardliner_agent.hardliner_agent.HardlinerAgent",
-        # },
+        {
+            "class": "agents.hardliner_agent.hardliner_agent.HardlinerAgent",
+        },
 # {
 #             "class": "agents.random_agent.random_agent.RandomAgent",
 #         },
@@ -47,9 +47,9 @@ tournament_settings = {
         {
             "class": "agents.CSE3210.agent24.agent24.Agent24",
         },
-        {
-            "class": "agents.CSE3210.agent68.agent68.Agent68",
-        },
+        # {
+        #     "class": "agents.CSE3210.agent68.agent68.Agent68",
+        # },
     ],
     "profile_sets": [
         ["domains/domain00/profileA.json", "domains/domain00/profileB.json"],
