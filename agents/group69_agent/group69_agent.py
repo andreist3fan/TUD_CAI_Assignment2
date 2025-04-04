@@ -122,6 +122,15 @@ class Agent69(DefaultParty):
         elif isinstance(data, ActionDone):
             action = cast(ActionDone, data).getAction()
             actor = action.getActor()
+            if actor == self.me and isinstance(action, Accept):
+                self.logger.log(logging.INFO,
+                                f"We have accepted utility aaaaaaaaaaaaaaaaaaaaaaaaa:{self.profile.getUtility(self.last_received_bid)}")
+                print(f"We accepted at utility: {self.profile.getUtility(self.last_sent_bid)}")
+            elif actor != self.me and isinstance(action, Accept):
+                self.logger.log(logging.INFO,
+                                f"They have accepted utility aaaaaaaaaaaaaaaaaaaaaaaaa:{self.profile.getUtility(self.last_sent_bid)}")
+                print(f"They accepted at utility: {self.profile.getUtility(self.last_sent_bid)}")
+
             if isinstance(action, Accept):
                 print(f"They accepted at utility: {self.profile.getUtility(self.last_sent_bid)}")
             elif not isinstance(action, Offer):

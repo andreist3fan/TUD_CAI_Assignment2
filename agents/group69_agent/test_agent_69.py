@@ -42,7 +42,7 @@ def convert_number(value):
         return None
 
 
-class Agent69(DefaultParty):
+class Agent69_test(DefaultParty):
     """
     Template of a Python geniusweb agent.
     """
@@ -71,7 +71,7 @@ class Agent69(DefaultParty):
         self.logger.log(logging.INFO, "party is initialized")
 
         self.base_reservation = 0.9
-        self.current_reservation = 0.9
+        self.current_reservation = 0.7
         self.modelling_time = 0.25
         self.tick_decrease_hardball = 0.55
         self.tick_decrease_normal = 0.35
@@ -116,7 +116,14 @@ class Agent69(DefaultParty):
             action = cast(ActionDone, data).getAction()
             actor = action.getActor()
             if isinstance(action, Accept):
-                print(f"We accepted at utility: {self.profile.getUtility(self.last_sent_bid)}")
+                # print(f"We accepted at utility: {self.profile.getUtility(self.last_sent_bid)}")
+                if actor == self.me:
+                    self.logger.log(logging.INFO, f"We have accepted utility aaaaaaaaaaaaaaaaaaaaaaaaa:{self.profile.getUtility(self.last_received_bid)}")
+                    print(f"We accepted at utility: {self.profile.getUtility(self.last_sent_bid)}")
+                else:
+                    self.logger.log(logging.INFO, f"They have accepted utility aaaaaaaaaaaaaaaaaaaaaaaaa:{self.profile.getUtility(self.last_sent_bid)}")
+                    print(f"They accepted at utility: {self.profile.getUtility(self.last_sent_bid)}")
+
             elif not isinstance(action, Offer):
                 print(f"Received action: {action} (probably rejected by {actor})")
             # ignore action if it is our action

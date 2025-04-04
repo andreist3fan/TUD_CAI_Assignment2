@@ -17,39 +17,33 @@ if not RESULTS_DIR.exists():
 #   You need to specify a time deadline (is milliseconds (ms)) we are allowed to negotiate before we end without agreement.
 tournament_settings = {
     "agents": [
+        # {
+        #     "class": "agents.group69_agent.group69_agent.Agent69",
+        #     "parameters": {"storage_dir": "agent_storage/TemplateAgent69"},
+        # },
         {
-            "class": "agents.group69_agent.group69_agent.Agent69",
-            "parameters": {"storage_dir": "agent_storage/TemplateAgent69"},
-        },
-        {
-            "class": "agents.group69_agent.test_agent_69.Agent69",
+            "class": "agents.group69_agent.test_agent_69.Agent69_test",
             "parameters": {"storage_dir": "agent_storage/test_Agent69"},
         },
-
-        {
-            "class": "agents.boulware_agent.boulware_agent.BoulwareAgent",
-        },
+        # {
+        #     "class": "agents.group69_agent.frst_working_iteration.Agent69_first",
+        #     "parameters": {"storage_dir": "agent_storage/first_Agent69"},
+        # },
+        # {
+        #     "class": "agents.boulware_agent.boulware_agent.BoulwareAgent",
+        # },
         {
             "class": "agents.conceder_agent.conceder_agent.ConcederAgent",
         },
-        {
-            "class": "agents.hardliner_agent.hardliner_agent.HardlinerAgent",
-        },
-{
-            "class": "agents.random_agent.random_agent.RandomAgent",
-        },
-        {
-            "class": "agents.stupid_agent.stupid_agent.StupidAgent",
-        },
-        {
-            "class": "agents.CSE3210.agent2.agent2.Agent2",
-        },
-        {
-            "class": "agents.CSE3210.agent3.agent3.Agent3",
-        },
-        {
-            "class": "agents.CSE3210.agent7.agent7.Agent7",
-        },
+        # {
+        #     "class": "agents.hardliner_agent.hardliner_agent.HardlinerAgent",
+        # },
+# {
+#             "class": "agents.random_agent.random_agent.RandomAgent",
+#         },
+#         {
+#             "class": "agents.CSE3210.agent2.agent2.Agent2",
+#         },
         {
             "class": "agents.CSE3210.agent24.agent24.Agent24",
         },
