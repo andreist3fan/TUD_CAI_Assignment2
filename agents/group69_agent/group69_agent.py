@@ -3,7 +3,7 @@ import random
 import os
 from random import randint
 from time import time
-from typing import cast
+from typing import cast, Dict
 
 import numpy as np
 from geniusweb.actions.Accept import Accept
@@ -17,6 +17,7 @@ from geniusweb.inform.Finished import Finished
 from geniusweb.inform.Inform import Inform
 from geniusweb.inform.Settings import Settings
 from geniusweb.inform.YourTurn import YourTurn
+from geniusweb.issuevalue.Value import Value
 from geniusweb.issuevalue.Bid import Bid
 from geniusweb.issuevalue.Domain import Domain
 from geniusweb.party.Capabilities import Capabilities
@@ -69,13 +70,18 @@ class Agent69(DefaultParty):
         self.last_received_bid: Bid = None
         self.opponent_model: FrequencyOpponentModelGroup69 = None
         self.logger.log(logging.INFO, "party is initialized")
+        self.times_worse_bids = 0
 
         self.base_reservation = 0.9
         self.current_reservation = 0.9
         self.modelling_time = 0.25
+
+        self.current_reservation = 0.9
         self.tick_decrease_hardball = 0.55
         self.tick_decrease_normal = 0.35
         self.updated = False
+        self.crt_prog = None
+        self.prev_prog = None
 
     def notifyChange(self, data: Inform):
         """MUST BE IMPLEMENTED
@@ -115,8 +121,13 @@ class Agent69(DefaultParty):
         elif isinstance(data, ActionDone):
             action = cast(ActionDone, data).getAction()
             actor = action.getActor()
-            if isinstance(action, Accept):
-                print(f"We accepted at utility: {self.profile.getUtility(self.last_sent_bid)}")
+            if actor == self.me and isinstance(action, Accept):
+                self.logger.log(logging.INFO,
+                                f"We have accepted utility:{self.profile.getUtility(self.last_received_bid)}")
+            elif actor != self.me and isinstance(action, Accept):
+                self.logger.log(logging.INFO,
+                                f"They have accepted utility:{self.profile.getUtility(self.last_sent_bid)}")
+
             elif not isinstance(action, Offer):
                 print(f"Received action: {action} (probably rejected by {actor})")
             # ignore action if it is our action
@@ -126,7 +137,7 @@ class Agent69(DefaultParty):
                 if not self.updated:
                     file_path = os.path.join(str(self.storage_dir), f"{self.other}_data_{self.domain.getName()}.json")
                     # if we want to learn across negotiations for testing purposes can be commented out
-                    # self.opponent_model.read_data(file_path)
+                    self.opponent_model.read_data(file_path)
                     self.updated = True
                 # process action done by opponent
                 self.opponent_action(action)
@@ -140,6 +151,7 @@ class Agent69(DefaultParty):
             self.save_data()
             # terminate the agent MUST BE CALLED
             self.logger.log(logging.INFO, "party is terminating:")
+            # print(f"Negotiation TLEd with last utility: {self.profile.getUtility(self.last_sent_bid)}")
             super().terminate()
         else:
             self.logger.log(logging.WARNING, "Ignoring unknown info " + str(data))
@@ -202,14 +214,22 @@ class Agent69(DefaultParty):
         # check if the last received offer is good enough
         if self.accept_condition(self.last_received_bid):
             # if so, accept the offer
-            print(f"We accepted at utility: {self.profile.getUtility(self.last_received_bid)}")
+            self.logger.log(logging.INFO, f"We accepted at utility: {self.profile.getUtility(self.last_received_bid)} against {self.other}")
             action = Accept(self.me, self.last_received_bid)
         else:
             # if not, find a bid to propose as counter offer
             bid = self.find_bid()
             if bid is None:
                 action = EndNegotiation(self.me)
-                print("Ended negotiation without reaching a consensus")
+                self.logger.log(logging.INFO,
+                                f"Ended negotiation without reaching a consensus against {self.other}")
+
+            elif self.last_received_bid is not None and self.score_bid(bid) < self.score_bid(self.last_received_bid):
+                self.times_worse_bids += 1
+                action = Offer(self.me, bid)
+                if self.times_worse_bids > 3:
+                    self.logger.log(logging.INFO, f"We accepted at utility because we were going to give a worse bid: {self.profile.getUtility(self.last_received_bid)} against {self.other}")
+                    action = Accept(self.me, self.last_received_bid)
             else:
                 action = Offer(self.me, bid)
             self.opponent_model = self.opponent_model.WithMyAction(action, self.progress)
@@ -249,13 +269,17 @@ class Agent69(DefaultParty):
 
         # progress of the negotiation session between 0 and 1 (1 is deadline)
         progress = self.progress.get(time() * 1000)
+        self.crt_prog =  progress
+        if self.prev_prog is None :
+            self.prev_prog = progress
         crt_utility = self.profile.getUtility(bid)
         # print(f"progress: {progress}")
-
+        # print(f" crt prog {self.crt_prog} prev prog {self.prev_prog} ")
         if progress <= self.modelling_time:
             return crt_utility >= self.base_reservation
 
         self.current_reservation = self.get_acceptable_utility()
+        self.prev_prog =  self.crt_prog
         return crt_utility >= self.current_reservation
 
     def get_acceptable_utility(self):
@@ -278,10 +302,10 @@ class Agent69(DefaultParty):
         # any drastic changes (hardballing or not)
 
         if hardball: # If opponent is hardballing, we need to concede more quickly
-            return self.current_reservation - 0.0001*self.tick_decrease_hardball # 0.0001 is the change between ticks (1 ms)
+            return self.current_reservation - (self.crt_prog - self.prev_prog)*self.tick_decrease_hardball # 0.0001 is the change between ticks (1 ms)
                                                         # assuming we update each tick
         else: # If opponent is not hardballing, we can be more strict
-            return self.current_reservation - 0.0001*self.tick_decrease_normal
+            return self.current_reservation - (self.crt_prog - self.prev_prog)*self.tick_decrease_normal
 
     def is_opponent_hardball(self):
         """
@@ -351,7 +375,8 @@ class Agent69(DefaultParty):
         self.sent_bids = []
         all_bids = AllBidsList(self.domain)
         for i in range(all_bids.size()):
-            self.remaining_bids.append(all_bids.get(i))
+            bid = all_bids.get(i)
+            self.remaining_bids.append(bid)
 
     def score_bid(self, bid: Bid, alpha: float = 0.95, eps: float = 0.1) -> float:
         progress = self.progress.get(time() * 1000)
@@ -364,20 +389,6 @@ class Agent69(DefaultParty):
             score += (1.0 - alpha * time_pressure) * opp_util
 
         return score
-
-    # def place_bids_in_bins(self):
-    #     all_bids = AllBidsList(self.domain)
-    #     self.sorted_all_bids = []
-    #     for i in range(20):
-    #         self.sorted_all_bids.append([])
-    #
-    #     for j in range(all_bids.size()):
-    #         bid = all_bids.get(j)
-    #         utility = self.score_bid(bid)
-    #         index = int(utility * 20)
-    #         if index == 20:
-    #             index = 19
-    #         self.sorted_all_bids[index].append(bid)
 
     def get_bids_within_range(self, low: float):
         all_bids = AllBidsList(self.domain)

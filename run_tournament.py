@@ -18,7 +18,7 @@ if not RESULTS_DIR.exists():
 tournament_settings = {
     "agents": [
         {
-            "class": "agents.group69_agent.group69_agent.TemplateAgent",
+            "class": "agents.group69_agent.group69_agent.Agent69",
             "parameters": {"storage_dir": "agent_storage/TemplateAgent69"},
         },
         {
@@ -30,6 +30,18 @@ tournament_settings = {
         {
             "class": "agents.hardliner_agent.hardliner_agent.HardlinerAgent",
         },
+# {
+#             "class": "agents.random_agent.random_agent.RandomAgent",
+#         },
+#         {
+#             "class": "agents.CSE3210.agent2.agent2.Agent2",
+#         },
+        {
+            "class": "agents.CSE3210.agent24.agent24.Agent24",
+        },
+        # {
+        #     "class": "agents.CSE3210.agent68.agent68.Agent68",
+        # },
     ],
     "profile_sets": [
         ["domains/domain00/profileA.json", "domains/domain00/profileB.json"],

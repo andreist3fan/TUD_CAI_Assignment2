@@ -19,12 +19,11 @@ if not RESULTS_DIR.exists():
 settings = {
     "agents": [
         {
-            "class": "agents.hardliner_agent.hardliner_agent.HardlinerAgent",
-            "parameters": {"storage_dir": "agent_storage/TemplateAgent"},
+             "class": "agents.group69_agent.group69_agent.Agent69",
+            "parameters": {"storage_dir": "agent_storage/Agent69"},
         },
         {
-            "class": "agents.group69_agent.group69_agent.TemplateAgent",
-            "parameters": {"storage_dir": "agent_storage/TemplateAgent69"},
+            "class": "agents.conceder_agent.conceder_agent.ConcederAgent",
         },
 
     ],

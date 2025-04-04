@@ -105,6 +105,9 @@ class FrequencyOpponentModelGroup69(UtilitySpace, OpponentModel):
     def getDomain(self) -> Domain:
         return val(self._domain)
 
+    def getFrequencies(self):
+        return self.cloneMap(self._bidFrequencies)
+
     # Override
     def WithAction(self, action: Action, progress: Progress) -> "FrequencyOpponentModelGroup69":
         if self._domain == None:
@@ -220,17 +223,10 @@ class FrequencyOpponentModelGroup69(UtilitySpace, OpponentModel):
     def save_data(self, storage_dir, other):
         issue_data = {}
         for issue, weight in self._issueWeights.items():
-            value_utilities = {}
-            for value, count in self._bidFrequencies.get(issue, {}).items():
-                value_utilities[value.getValue()] = self._bidFrequencies[issue][value]
 
             issue_data[issue] = {
-                "DiscreteValueSetUtilities": {
-                    "valueUtilities": value_utilities
-                },
                 "Weight": float(weight)
             }
-
         # self._resBid = self.all_bids[self.all_bids.index(min([self.getUtility(x) for x in self.all_bids]))]
 
 
@@ -240,8 +236,6 @@ class FrequencyOpponentModelGroup69(UtilitySpace, OpponentModel):
         # Combine data
         data_to_save = {
             "Issues": issue_data,
-            "Reservation": self._resBid,
-            "Bids Exchanged": self._totalBids
         }
 
         # Save to file
@@ -260,7 +254,7 @@ class FrequencyOpponentModelGroup69(UtilitySpace, OpponentModel):
         with open(file_path, 'r') as f:
             data = json.load(f)
 
-        previous_total_bids = data.get('Bids Exchanged', 0)
+        # previous_total_bids = data.get('Bids Exchanged', 0)
         # self._totalBids = previous_total_bids
         previous_issue_data = data.get('Issues', {})
         # self._resBid = data.get('Reservation', None)
