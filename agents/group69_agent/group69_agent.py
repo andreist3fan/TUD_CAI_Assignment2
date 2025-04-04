@@ -216,7 +216,8 @@ class Agent69(DefaultParty):
             frequencies = self.opponent_model.getFrequencies()
             for issue in frequencies.keys():
                 if issue in self.issues_to_consider:
-                    self.predefined_issue_values[issue] = max(frequencies[issue], key=frequencies[issue].get)
+                    if len(frequencies[issue])>0:
+                        self.predefined_issue_values[issue] = max(frequencies[issue], key=frequencies[issue].get)
 
             bid = self.find_bid()
             if bid is None:
@@ -224,6 +225,7 @@ class Agent69(DefaultParty):
                 print("Ended negotiation without reaching a consensus")
             elif self.last_received_bid is not None and self.score_bid(bid) < self.score_bid(self.last_received_bid):
                 self.times_worse_bids += 1
+                action = Offer(self.me, bid)
                 if self.times_worse_bids > 3:
                     print(f"We accepted at utility because we were going to give a worse bid: {self.profile.getUtility(self.last_received_bid)}")
                     action = Accept(self.me, self.last_received_bid)

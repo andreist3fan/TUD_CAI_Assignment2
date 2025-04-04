@@ -18,7 +18,7 @@ if not RESULTS_DIR.exists():
 tournament_settings = {
     "agents": [
         {
-            "class": "agents.group69_agent.group69_agent.TemplateAgent",
+            "class": "agents.group69_agent.group69_agent.Agent69",
             "parameters": {"storage_dir": "agent_storage/TemplateAgent69"},
         },
         {

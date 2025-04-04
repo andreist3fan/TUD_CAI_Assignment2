@@ -19,12 +19,11 @@ if not RESULTS_DIR.exists():
 settings = {
     "agents": [
         {
-            "class": "agents.conceder_agent.conceder_agent.ConcederAgent",
-            "parameters": {"storage_dir": "agent_storage/TemplateAgent"},
+            "class": "agents.CSE3210.agent68.agent68.Agent68",
         },
         {
-            "class": "agents.group69_agent.group69_agent.TemplateAgent",
-            "parameters": {"storage_dir": "agent_storage/TemplateAgent69"},
+            "class": "agents.group69_agent.group69_agent.Agent69",
+            "parameters": {"storage_dir": "agent_storage/Agent69"},
         },
 
     ],
