@@ -75,9 +75,13 @@ class Agent69(DefaultParty):
         self.base_reservation = 0.9
         self.current_reservation = 0.9
         self.modelling_time = 0.25
+
+        self.current_reservation = 0.9
         self.tick_decrease_hardball = 0.55
         self.tick_decrease_normal = 0.35
         self.updated = False
+        self.crt_prog = None
+        self.prev_prog = None
         self.issues_to_consider = []
         self.predefined_issue_values: Dict[str, Value] = {}
 
@@ -156,6 +160,7 @@ class Agent69(DefaultParty):
             self.save_data()
             # terminate the agent MUST BE CALLED
             self.logger.log(logging.INFO, "party is terminating:")
+            print(f"Negotiation TLEd with last utility: {self.profile.getUtility(self.last_sent_bid)}")
             super().terminate()
         else:
             self.logger.log(logging.WARNING, "Ignoring unknown info " + str(data))
@@ -277,13 +282,17 @@ class Agent69(DefaultParty):
 
         # progress of the negotiation session between 0 and 1 (1 is deadline)
         progress = self.progress.get(time() * 1000)
+        self.crt_prog =  progress
+        if self.prev_prog is None :
+            self.prev_prog = progress
         crt_utility = self.profile.getUtility(bid)
         # print(f"progress: {progress}")
-
+        print(f" crt prog {self.crt_prog} prev prog {self.prev_prog} ")
         if progress <= self.modelling_time:
             return crt_utility >= self.base_reservation
 
         self.current_reservation = self.get_acceptable_utility()
+        self.prev_prog =  self.crt_prog
         return crt_utility >= self.current_reservation
 
     def get_acceptable_utility(self):
@@ -306,10 +315,10 @@ class Agent69(DefaultParty):
         # any drastic changes (hardballing or not)
 
         if hardball: # If opponent is hardballing, we need to concede more quickly
-            return self.current_reservation - 0.0001*self.tick_decrease_hardball # 0.0001 is the change between ticks (1 ms)
+            return self.current_reservation - (self.crt_prog - self.prev_prog)*self.tick_decrease_hardball # 0.0001 is the change between ticks (1 ms)
                                                         # assuming we update each tick
         else: # If opponent is not hardballing, we can be more strict
-            return self.current_reservation - 0.0001*self.tick_decrease_normal
+            return self.current_reservation - (self.crt_prog - self.prev_prog)*self.tick_decrease_normal
 
     def is_opponent_hardball(self):
         """
