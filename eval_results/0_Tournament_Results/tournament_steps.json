@@ -1,0 +1,6470 @@
+[
+  {
+    "agents": [
+      {
+        "class": "agents.group69_agent.group69_agent.Agent69",
+        "parameters": {
+          "storage_dir": "agent_storage/TemplateAgent69"
+        }
+      },
+      {
+        "class": "agents.boulware_agent.boulware_agent.BoulwareAgent"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.group69_agent.group69_agent.Agent69",
+        "parameters": {
+          "storage_dir": "agent_storage/TemplateAgent69"
+        }
+      },
+      {
+        "class": "agents.conceder_agent.conceder_agent.ConcederAgent"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.group69_agent.group69_agent.Agent69",
+        "parameters": {
+          "storage_dir": "agent_storage/TemplateAgent69"
+        }
+      },
+      {
+        "class": "agents.linear_agent.linear_agent.LinearAgent"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.group69_agent.group69_agent.Agent69",
+        "parameters": {
+          "storage_dir": "agent_storage/TemplateAgent69"
+        }
+      },
+      {
+        "class": "agents.random_agent.random_agent.RandomAgent"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.group69_agent.group69_agent.Agent69",
+        "parameters": {
+          "storage_dir": "agent_storage/TemplateAgent69"
+        }
+      },
+      {
+        "class": "agents.stupid_agent.stupid_agent.StupidAgent"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.group69_agent.group69_agent.Agent69",
+        "parameters": {
+          "storage_dir": "agent_storage/TemplateAgent69"
+        }
+      },
+      {
+        "class": "agents.CSE3210.agent2.agent2.Agent2"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.group69_agent.group69_agent.Agent69",
+        "parameters": {
+          "storage_dir": "agent_storage/TemplateAgent69"
+        }
+      },
+      {
+        "class": "agents.CSE3210.agent3.agent3.Agent3"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.group69_agent.group69_agent.Agent69",
+        "parameters": {
+          "storage_dir": "agent_storage/TemplateAgent69"
+        }
+      },
+      {
+        "class": "agents.CSE3210.agent7.agent7.Agent7"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.group69_agent.group69_agent.Agent69",
+        "parameters": {
+          "storage_dir": "agent_storage/TemplateAgent69"
+        }
+      },
+      {
+        "class": "agents.CSE3210.agent11.agent11.Agent11"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.group69_agent.group69_agent.Agent69",
+        "parameters": {
+          "storage_dir": "agent_storage/TemplateAgent69"
+        }
+      },
+      {
+        "class": "agents.CSE3210.agent24.agent24.Agent24"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.group69_agent.group69_agent.Agent69",
+        "parameters": {
+          "storage_dir": "agent_storage/TemplateAgent69"
+        }
+      },
+      {
+        "class": "agents.CSE3210.agent27.agent27.Agent27"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.group69_agent.group69_agent.Agent69",
+        "parameters": {
+          "storage_dir": "agent_storage/TemplateAgent69"
+        }
+      },
+      {
+        "class": "agents.CSE3210.agent41.agent41.Agent41"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.group69_agent.group69_agent.Agent69",
+        "parameters": {
+          "storage_dir": "agent_storage/TemplateAgent69"
+        }
+      },
+      {
+        "class": "agents.CSE3210.agent43.agent43.Agent43"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.group69_agent.group69_agent.Agent69",
+        "parameters": {
+          "storage_dir": "agent_storage/TemplateAgent69"
+        }
+      },
+      {
+        "class": "agents.CSE3210.agent50.agent50.Agent50"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.boulware_agent.boulware_agent.BoulwareAgent"
+      },
+      {
+        "class": "agents.group69_agent.group69_agent.Agent69",
+        "parameters": {
+          "storage_dir": "agent_storage/TemplateAgent69"
+        }
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.boulware_agent.boulware_agent.BoulwareAgent"
+      },
+      {
+        "class": "agents.conceder_agent.conceder_agent.ConcederAgent"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.boulware_agent.boulware_agent.BoulwareAgent"
+      },
+      {
+        "class": "agents.linear_agent.linear_agent.LinearAgent"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.boulware_agent.boulware_agent.BoulwareAgent"
+      },
+      {
+        "class": "agents.random_agent.random_agent.RandomAgent"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.boulware_agent.boulware_agent.BoulwareAgent"
+      },
+      {
+        "class": "agents.stupid_agent.stupid_agent.StupidAgent"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.boulware_agent.boulware_agent.BoulwareAgent"
+      },
+      {
+        "class": "agents.CSE3210.agent2.agent2.Agent2"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.boulware_agent.boulware_agent.BoulwareAgent"
+      },
+      {
+        "class": "agents.CSE3210.agent3.agent3.Agent3"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.boulware_agent.boulware_agent.BoulwareAgent"
+      },
+      {
+        "class": "agents.CSE3210.agent7.agent7.Agent7"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.boulware_agent.boulware_agent.BoulwareAgent"
+      },
+      {
+        "class": "agents.CSE3210.agent11.agent11.Agent11"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.boulware_agent.boulware_agent.BoulwareAgent"
+      },
+      {
+        "class": "agents.CSE3210.agent24.agent24.Agent24"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.boulware_agent.boulware_agent.BoulwareAgent"
+      },
+      {
+        "class": "agents.CSE3210.agent27.agent27.Agent27"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.boulware_agent.boulware_agent.BoulwareAgent"
+      },
+      {
+        "class": "agents.CSE3210.agent41.agent41.Agent41"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.boulware_agent.boulware_agent.BoulwareAgent"
+      },
+      {
+        "class": "agents.CSE3210.agent43.agent43.Agent43"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.boulware_agent.boulware_agent.BoulwareAgent"
+      },
+      {
+        "class": "agents.CSE3210.agent50.agent50.Agent50"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.conceder_agent.conceder_agent.ConcederAgent"
+      },
+      {
+        "class": "agents.group69_agent.group69_agent.Agent69",
+        "parameters": {
+          "storage_dir": "agent_storage/TemplateAgent69"
+        }
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.conceder_agent.conceder_agent.ConcederAgent"
+      },
+      {
+        "class": "agents.boulware_agent.boulware_agent.BoulwareAgent"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.conceder_agent.conceder_agent.ConcederAgent"
+      },
+      {
+        "class": "agents.linear_agent.linear_agent.LinearAgent"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.conceder_agent.conceder_agent.ConcederAgent"
+      },
+      {
+        "class": "agents.random_agent.random_agent.RandomAgent"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.conceder_agent.conceder_agent.ConcederAgent"
+      },
+      {
+        "class": "agents.stupid_agent.stupid_agent.StupidAgent"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.conceder_agent.conceder_agent.ConcederAgent"
+      },
+      {
+        "class": "agents.CSE3210.agent2.agent2.Agent2"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.conceder_agent.conceder_agent.ConcederAgent"
+      },
+      {
+        "class": "agents.CSE3210.agent3.agent3.Agent3"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.conceder_agent.conceder_agent.ConcederAgent"
+      },
+      {
+        "class": "agents.CSE3210.agent7.agent7.Agent7"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.conceder_agent.conceder_agent.ConcederAgent"
+      },
+      {
+        "class": "agents.CSE3210.agent11.agent11.Agent11"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.conceder_agent.conceder_agent.ConcederAgent"
+      },
+      {
+        "class": "agents.CSE3210.agent24.agent24.Agent24"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.conceder_agent.conceder_agent.ConcederAgent"
+      },
+      {
+        "class": "agents.CSE3210.agent27.agent27.Agent27"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.conceder_agent.conceder_agent.ConcederAgent"
+      },
+      {
+        "class": "agents.CSE3210.agent41.agent41.Agent41"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.conceder_agent.conceder_agent.ConcederAgent"
+      },
+      {
+        "class": "agents.CSE3210.agent43.agent43.Agent43"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.conceder_agent.conceder_agent.ConcederAgent"
+      },
+      {
+        "class": "agents.CSE3210.agent50.agent50.Agent50"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.linear_agent.linear_agent.LinearAgent"
+      },
+      {
+        "class": "agents.group69_agent.group69_agent.Agent69",
+        "parameters": {
+          "storage_dir": "agent_storage/TemplateAgent69"
+        }
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.linear_agent.linear_agent.LinearAgent"
+      },
+      {
+        "class": "agents.boulware_agent.boulware_agent.BoulwareAgent"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.linear_agent.linear_agent.LinearAgent"
+      },
+      {
+        "class": "agents.conceder_agent.conceder_agent.ConcederAgent"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.linear_agent.linear_agent.LinearAgent"
+      },
+      {
+        "class": "agents.random_agent.random_agent.RandomAgent"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.linear_agent.linear_agent.LinearAgent"
+      },
+      {
+        "class": "agents.stupid_agent.stupid_agent.StupidAgent"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.linear_agent.linear_agent.LinearAgent"
+      },
+      {
+        "class": "agents.CSE3210.agent2.agent2.Agent2"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.linear_agent.linear_agent.LinearAgent"
+      },
+      {
+        "class": "agents.CSE3210.agent3.agent3.Agent3"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.linear_agent.linear_agent.LinearAgent"
+      },
+      {
+        "class": "agents.CSE3210.agent7.agent7.Agent7"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.linear_agent.linear_agent.LinearAgent"
+      },
+      {
+        "class": "agents.CSE3210.agent11.agent11.Agent11"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.linear_agent.linear_agent.LinearAgent"
+      },
+      {
+        "class": "agents.CSE3210.agent24.agent24.Agent24"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.linear_agent.linear_agent.LinearAgent"
+      },
+      {
+        "class": "agents.CSE3210.agent27.agent27.Agent27"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.linear_agent.linear_agent.LinearAgent"
+      },
+      {
+        "class": "agents.CSE3210.agent41.agent41.Agent41"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.linear_agent.linear_agent.LinearAgent"
+      },
+      {
+        "class": "agents.CSE3210.agent43.agent43.Agent43"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.linear_agent.linear_agent.LinearAgent"
+      },
+      {
+        "class": "agents.CSE3210.agent50.agent50.Agent50"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.random_agent.random_agent.RandomAgent"
+      },
+      {
+        "class": "agents.group69_agent.group69_agent.Agent69",
+        "parameters": {
+          "storage_dir": "agent_storage/TemplateAgent69"
+        }
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.random_agent.random_agent.RandomAgent"
+      },
+      {
+        "class": "agents.boulware_agent.boulware_agent.BoulwareAgent"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.random_agent.random_agent.RandomAgent"
+      },
+      {
+        "class": "agents.conceder_agent.conceder_agent.ConcederAgent"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.random_agent.random_agent.RandomAgent"
+      },
+      {
+        "class": "agents.linear_agent.linear_agent.LinearAgent"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.random_agent.random_agent.RandomAgent"
+      },
+      {
+        "class": "agents.stupid_agent.stupid_agent.StupidAgent"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.random_agent.random_agent.RandomAgent"
+      },
+      {
+        "class": "agents.CSE3210.agent2.agent2.Agent2"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.random_agent.random_agent.RandomAgent"
+      },
+      {
+        "class": "agents.CSE3210.agent3.agent3.Agent3"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.random_agent.random_agent.RandomAgent"
+      },
+      {
+        "class": "agents.CSE3210.agent7.agent7.Agent7"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.random_agent.random_agent.RandomAgent"
+      },
+      {
+        "class": "agents.CSE3210.agent11.agent11.Agent11"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.random_agent.random_agent.RandomAgent"
+      },
+      {
+        "class": "agents.CSE3210.agent24.agent24.Agent24"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.random_agent.random_agent.RandomAgent"
+      },
+      {
+        "class": "agents.CSE3210.agent27.agent27.Agent27"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.random_agent.random_agent.RandomAgent"
+      },
+      {
+        "class": "agents.CSE3210.agent41.agent41.Agent41"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.random_agent.random_agent.RandomAgent"
+      },
+      {
+        "class": "agents.CSE3210.agent43.agent43.Agent43"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.random_agent.random_agent.RandomAgent"
+      },
+      {
+        "class": "agents.CSE3210.agent50.agent50.Agent50"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.stupid_agent.stupid_agent.StupidAgent"
+      },
+      {
+        "class": "agents.group69_agent.group69_agent.Agent69",
+        "parameters": {
+          "storage_dir": "agent_storage/TemplateAgent69"
+        }
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.stupid_agent.stupid_agent.StupidAgent"
+      },
+      {
+        "class": "agents.boulware_agent.boulware_agent.BoulwareAgent"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.stupid_agent.stupid_agent.StupidAgent"
+      },
+      {
+        "class": "agents.conceder_agent.conceder_agent.ConcederAgent"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.stupid_agent.stupid_agent.StupidAgent"
+      },
+      {
+        "class": "agents.linear_agent.linear_agent.LinearAgent"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.stupid_agent.stupid_agent.StupidAgent"
+      },
+      {
+        "class": "agents.random_agent.random_agent.RandomAgent"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.stupid_agent.stupid_agent.StupidAgent"
+      },
+      {
+        "class": "agents.CSE3210.agent2.agent2.Agent2"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.stupid_agent.stupid_agent.StupidAgent"
+      },
+      {
+        "class": "agents.CSE3210.agent3.agent3.Agent3"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.stupid_agent.stupid_agent.StupidAgent"
+      },
+      {
+        "class": "agents.CSE3210.agent7.agent7.Agent7"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.stupid_agent.stupid_agent.StupidAgent"
+      },
+      {
+        "class": "agents.CSE3210.agent11.agent11.Agent11"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.stupid_agent.stupid_agent.StupidAgent"
+      },
+      {
+        "class": "agents.CSE3210.agent24.agent24.Agent24"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.stupid_agent.stupid_agent.StupidAgent"
+      },
+      {
+        "class": "agents.CSE3210.agent27.agent27.Agent27"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.stupid_agent.stupid_agent.StupidAgent"
+      },
+      {
+        "class": "agents.CSE3210.agent41.agent41.Agent41"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.stupid_agent.stupid_agent.StupidAgent"
+      },
+      {
+        "class": "agents.CSE3210.agent43.agent43.Agent43"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.stupid_agent.stupid_agent.StupidAgent"
+      },
+      {
+        "class": "agents.CSE3210.agent50.agent50.Agent50"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent2.agent2.Agent2"
+      },
+      {
+        "class": "agents.group69_agent.group69_agent.Agent69",
+        "parameters": {
+          "storage_dir": "agent_storage/TemplateAgent69"
+        }
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent2.agent2.Agent2"
+      },
+      {
+        "class": "agents.boulware_agent.boulware_agent.BoulwareAgent"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent2.agent2.Agent2"
+      },
+      {
+        "class": "agents.conceder_agent.conceder_agent.ConcederAgent"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent2.agent2.Agent2"
+      },
+      {
+        "class": "agents.linear_agent.linear_agent.LinearAgent"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent2.agent2.Agent2"
+      },
+      {
+        "class": "agents.random_agent.random_agent.RandomAgent"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent2.agent2.Agent2"
+      },
+      {
+        "class": "agents.stupid_agent.stupid_agent.StupidAgent"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent2.agent2.Agent2"
+      },
+      {
+        "class": "agents.CSE3210.agent3.agent3.Agent3"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent2.agent2.Agent2"
+      },
+      {
+        "class": "agents.CSE3210.agent7.agent7.Agent7"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent2.agent2.Agent2"
+      },
+      {
+        "class": "agents.CSE3210.agent11.agent11.Agent11"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent2.agent2.Agent2"
+      },
+      {
+        "class": "agents.CSE3210.agent24.agent24.Agent24"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent2.agent2.Agent2"
+      },
+      {
+        "class": "agents.CSE3210.agent27.agent27.Agent27"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent2.agent2.Agent2"
+      },
+      {
+        "class": "agents.CSE3210.agent41.agent41.Agent41"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent2.agent2.Agent2"
+      },
+      {
+        "class": "agents.CSE3210.agent43.agent43.Agent43"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent2.agent2.Agent2"
+      },
+      {
+        "class": "agents.CSE3210.agent50.agent50.Agent50"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent3.agent3.Agent3"
+      },
+      {
+        "class": "agents.group69_agent.group69_agent.Agent69",
+        "parameters": {
+          "storage_dir": "agent_storage/TemplateAgent69"
+        }
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent3.agent3.Agent3"
+      },
+      {
+        "class": "agents.boulware_agent.boulware_agent.BoulwareAgent"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent3.agent3.Agent3"
+      },
+      {
+        "class": "agents.conceder_agent.conceder_agent.ConcederAgent"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent3.agent3.Agent3"
+      },
+      {
+        "class": "agents.linear_agent.linear_agent.LinearAgent"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent3.agent3.Agent3"
+      },
+      {
+        "class": "agents.random_agent.random_agent.RandomAgent"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent3.agent3.Agent3"
+      },
+      {
+        "class": "agents.stupid_agent.stupid_agent.StupidAgent"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent3.agent3.Agent3"
+      },
+      {
+        "class": "agents.CSE3210.agent2.agent2.Agent2"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent3.agent3.Agent3"
+      },
+      {
+        "class": "agents.CSE3210.agent7.agent7.Agent7"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent3.agent3.Agent3"
+      },
+      {
+        "class": "agents.CSE3210.agent11.agent11.Agent11"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent3.agent3.Agent3"
+      },
+      {
+        "class": "agents.CSE3210.agent24.agent24.Agent24"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent3.agent3.Agent3"
+      },
+      {
+        "class": "agents.CSE3210.agent27.agent27.Agent27"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent3.agent3.Agent3"
+      },
+      {
+        "class": "agents.CSE3210.agent41.agent41.Agent41"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent3.agent3.Agent3"
+      },
+      {
+        "class": "agents.CSE3210.agent43.agent43.Agent43"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent3.agent3.Agent3"
+      },
+      {
+        "class": "agents.CSE3210.agent50.agent50.Agent50"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent7.agent7.Agent7"
+      },
+      {
+        "class": "agents.group69_agent.group69_agent.Agent69",
+        "parameters": {
+          "storage_dir": "agent_storage/TemplateAgent69"
+        }
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent7.agent7.Agent7"
+      },
+      {
+        "class": "agents.boulware_agent.boulware_agent.BoulwareAgent"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent7.agent7.Agent7"
+      },
+      {
+        "class": "agents.conceder_agent.conceder_agent.ConcederAgent"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent7.agent7.Agent7"
+      },
+      {
+        "class": "agents.linear_agent.linear_agent.LinearAgent"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent7.agent7.Agent7"
+      },
+      {
+        "class": "agents.random_agent.random_agent.RandomAgent"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent7.agent7.Agent7"
+      },
+      {
+        "class": "agents.stupid_agent.stupid_agent.StupidAgent"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent7.agent7.Agent7"
+      },
+      {
+        "class": "agents.CSE3210.agent2.agent2.Agent2"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent7.agent7.Agent7"
+      },
+      {
+        "class": "agents.CSE3210.agent3.agent3.Agent3"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent7.agent7.Agent7"
+      },
+      {
+        "class": "agents.CSE3210.agent11.agent11.Agent11"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent7.agent7.Agent7"
+      },
+      {
+        "class": "agents.CSE3210.agent24.agent24.Agent24"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent7.agent7.Agent7"
+      },
+      {
+        "class": "agents.CSE3210.agent27.agent27.Agent27"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent7.agent7.Agent7"
+      },
+      {
+        "class": "agents.CSE3210.agent41.agent41.Agent41"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent7.agent7.Agent7"
+      },
+      {
+        "class": "agents.CSE3210.agent43.agent43.Agent43"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent7.agent7.Agent7"
+      },
+      {
+        "class": "agents.CSE3210.agent50.agent50.Agent50"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent11.agent11.Agent11"
+      },
+      {
+        "class": "agents.group69_agent.group69_agent.Agent69",
+        "parameters": {
+          "storage_dir": "agent_storage/TemplateAgent69"
+        }
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent11.agent11.Agent11"
+      },
+      {
+        "class": "agents.boulware_agent.boulware_agent.BoulwareAgent"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent11.agent11.Agent11"
+      },
+      {
+        "class": "agents.conceder_agent.conceder_agent.ConcederAgent"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent11.agent11.Agent11"
+      },
+      {
+        "class": "agents.linear_agent.linear_agent.LinearAgent"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent11.agent11.Agent11"
+      },
+      {
+        "class": "agents.random_agent.random_agent.RandomAgent"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent11.agent11.Agent11"
+      },
+      {
+        "class": "agents.stupid_agent.stupid_agent.StupidAgent"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent11.agent11.Agent11"
+      },
+      {
+        "class": "agents.CSE3210.agent2.agent2.Agent2"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent11.agent11.Agent11"
+      },
+      {
+        "class": "agents.CSE3210.agent3.agent3.Agent3"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent11.agent11.Agent11"
+      },
+      {
+        "class": "agents.CSE3210.agent7.agent7.Agent7"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent11.agent11.Agent11"
+      },
+      {
+        "class": "agents.CSE3210.agent24.agent24.Agent24"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent11.agent11.Agent11"
+      },
+      {
+        "class": "agents.CSE3210.agent27.agent27.Agent27"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent11.agent11.Agent11"
+      },
+      {
+        "class": "agents.CSE3210.agent41.agent41.Agent41"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent11.agent11.Agent11"
+      },
+      {
+        "class": "agents.CSE3210.agent43.agent43.Agent43"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent11.agent11.Agent11"
+      },
+      {
+        "class": "agents.CSE3210.agent50.agent50.Agent50"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent24.agent24.Agent24"
+      },
+      {
+        "class": "agents.group69_agent.group69_agent.Agent69",
+        "parameters": {
+          "storage_dir": "agent_storage/TemplateAgent69"
+        }
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent24.agent24.Agent24"
+      },
+      {
+        "class": "agents.boulware_agent.boulware_agent.BoulwareAgent"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent24.agent24.Agent24"
+      },
+      {
+        "class": "agents.conceder_agent.conceder_agent.ConcederAgent"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent24.agent24.Agent24"
+      },
+      {
+        "class": "agents.linear_agent.linear_agent.LinearAgent"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent24.agent24.Agent24"
+      },
+      {
+        "class": "agents.random_agent.random_agent.RandomAgent"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent24.agent24.Agent24"
+      },
+      {
+        "class": "agents.stupid_agent.stupid_agent.StupidAgent"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent24.agent24.Agent24"
+      },
+      {
+        "class": "agents.CSE3210.agent2.agent2.Agent2"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent24.agent24.Agent24"
+      },
+      {
+        "class": "agents.CSE3210.agent3.agent3.Agent3"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent24.agent24.Agent24"
+      },
+      {
+        "class": "agents.CSE3210.agent7.agent7.Agent7"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent24.agent24.Agent24"
+      },
+      {
+        "class": "agents.CSE3210.agent11.agent11.Agent11"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent24.agent24.Agent24"
+      },
+      {
+        "class": "agents.CSE3210.agent27.agent27.Agent27"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent24.agent24.Agent24"
+      },
+      {
+        "class": "agents.CSE3210.agent41.agent41.Agent41"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent24.agent24.Agent24"
+      },
+      {
+        "class": "agents.CSE3210.agent43.agent43.Agent43"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent24.agent24.Agent24"
+      },
+      {
+        "class": "agents.CSE3210.agent50.agent50.Agent50"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent27.agent27.Agent27"
+      },
+      {
+        "class": "agents.group69_agent.group69_agent.Agent69",
+        "parameters": {
+          "storage_dir": "agent_storage/TemplateAgent69"
+        }
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent27.agent27.Agent27"
+      },
+      {
+        "class": "agents.boulware_agent.boulware_agent.BoulwareAgent"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent27.agent27.Agent27"
+      },
+      {
+        "class": "agents.conceder_agent.conceder_agent.ConcederAgent"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent27.agent27.Agent27"
+      },
+      {
+        "class": "agents.linear_agent.linear_agent.LinearAgent"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent27.agent27.Agent27"
+      },
+      {
+        "class": "agents.random_agent.random_agent.RandomAgent"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent27.agent27.Agent27"
+      },
+      {
+        "class": "agents.stupid_agent.stupid_agent.StupidAgent"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent27.agent27.Agent27"
+      },
+      {
+        "class": "agents.CSE3210.agent2.agent2.Agent2"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent27.agent27.Agent27"
+      },
+      {
+        "class": "agents.CSE3210.agent3.agent3.Agent3"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent27.agent27.Agent27"
+      },
+      {
+        "class": "agents.CSE3210.agent7.agent7.Agent7"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent27.agent27.Agent27"
+      },
+      {
+        "class": "agents.CSE3210.agent11.agent11.Agent11"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent27.agent27.Agent27"
+      },
+      {
+        "class": "agents.CSE3210.agent24.agent24.Agent24"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent27.agent27.Agent27"
+      },
+      {
+        "class": "agents.CSE3210.agent41.agent41.Agent41"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent27.agent27.Agent27"
+      },
+      {
+        "class": "agents.CSE3210.agent43.agent43.Agent43"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent27.agent27.Agent27"
+      },
+      {
+        "class": "agents.CSE3210.agent50.agent50.Agent50"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent41.agent41.Agent41"
+      },
+      {
+        "class": "agents.group69_agent.group69_agent.Agent69",
+        "parameters": {
+          "storage_dir": "agent_storage/TemplateAgent69"
+        }
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent41.agent41.Agent41"
+      },
+      {
+        "class": "agents.boulware_agent.boulware_agent.BoulwareAgent"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent41.agent41.Agent41"
+      },
+      {
+        "class": "agents.conceder_agent.conceder_agent.ConcederAgent"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent41.agent41.Agent41"
+      },
+      {
+        "class": "agents.linear_agent.linear_agent.LinearAgent"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent41.agent41.Agent41"
+      },
+      {
+        "class": "agents.random_agent.random_agent.RandomAgent"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent41.agent41.Agent41"
+      },
+      {
+        "class": "agents.stupid_agent.stupid_agent.StupidAgent"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent41.agent41.Agent41"
+      },
+      {
+        "class": "agents.CSE3210.agent2.agent2.Agent2"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent41.agent41.Agent41"
+      },
+      {
+        "class": "agents.CSE3210.agent3.agent3.Agent3"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent41.agent41.Agent41"
+      },
+      {
+        "class": "agents.CSE3210.agent7.agent7.Agent7"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent41.agent41.Agent41"
+      },
+      {
+        "class": "agents.CSE3210.agent11.agent11.Agent11"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent41.agent41.Agent41"
+      },
+      {
+        "class": "agents.CSE3210.agent24.agent24.Agent24"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent41.agent41.Agent41"
+      },
+      {
+        "class": "agents.CSE3210.agent27.agent27.Agent27"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent41.agent41.Agent41"
+      },
+      {
+        "class": "agents.CSE3210.agent43.agent43.Agent43"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent41.agent41.Agent41"
+      },
+      {
+        "class": "agents.CSE3210.agent50.agent50.Agent50"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent43.agent43.Agent43"
+      },
+      {
+        "class": "agents.group69_agent.group69_agent.Agent69",
+        "parameters": {
+          "storage_dir": "agent_storage/TemplateAgent69"
+        }
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent43.agent43.Agent43"
+      },
+      {
+        "class": "agents.boulware_agent.boulware_agent.BoulwareAgent"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent43.agent43.Agent43"
+      },
+      {
+        "class": "agents.conceder_agent.conceder_agent.ConcederAgent"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent43.agent43.Agent43"
+      },
+      {
+        "class": "agents.linear_agent.linear_agent.LinearAgent"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent43.agent43.Agent43"
+      },
+      {
+        "class": "agents.random_agent.random_agent.RandomAgent"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent43.agent43.Agent43"
+      },
+      {
+        "class": "agents.stupid_agent.stupid_agent.StupidAgent"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent43.agent43.Agent43"
+      },
+      {
+        "class": "agents.CSE3210.agent2.agent2.Agent2"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent43.agent43.Agent43"
+      },
+      {
+        "class": "agents.CSE3210.agent3.agent3.Agent3"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent43.agent43.Agent43"
+      },
+      {
+        "class": "agents.CSE3210.agent7.agent7.Agent7"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent43.agent43.Agent43"
+      },
+      {
+        "class": "agents.CSE3210.agent11.agent11.Agent11"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent43.agent43.Agent43"
+      },
+      {
+        "class": "agents.CSE3210.agent24.agent24.Agent24"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent43.agent43.Agent43"
+      },
+      {
+        "class": "agents.CSE3210.agent27.agent27.Agent27"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent43.agent43.Agent43"
+      },
+      {
+        "class": "agents.CSE3210.agent41.agent41.Agent41"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent43.agent43.Agent43"
+      },
+      {
+        "class": "agents.CSE3210.agent50.agent50.Agent50"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent50.agent50.Agent50"
+      },
+      {
+        "class": "agents.group69_agent.group69_agent.Agent69",
+        "parameters": {
+          "storage_dir": "agent_storage/TemplateAgent69"
+        }
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent50.agent50.Agent50"
+      },
+      {
+        "class": "agents.boulware_agent.boulware_agent.BoulwareAgent"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent50.agent50.Agent50"
+      },
+      {
+        "class": "agents.conceder_agent.conceder_agent.ConcederAgent"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent50.agent50.Agent50"
+      },
+      {
+        "class": "agents.linear_agent.linear_agent.LinearAgent"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent50.agent50.Agent50"
+      },
+      {
+        "class": "agents.random_agent.random_agent.RandomAgent"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent50.agent50.Agent50"
+      },
+      {
+        "class": "agents.stupid_agent.stupid_agent.StupidAgent"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent50.agent50.Agent50"
+      },
+      {
+        "class": "agents.CSE3210.agent2.agent2.Agent2"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent50.agent50.Agent50"
+      },
+      {
+        "class": "agents.CSE3210.agent3.agent3.Agent3"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent50.agent50.Agent50"
+      },
+      {
+        "class": "agents.CSE3210.agent7.agent7.Agent7"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent50.agent50.Agent50"
+      },
+      {
+        "class": "agents.CSE3210.agent11.agent11.Agent11"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent50.agent50.Agent50"
+      },
+      {
+        "class": "agents.CSE3210.agent24.agent24.Agent24"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent50.agent50.Agent50"
+      },
+      {
+        "class": "agents.CSE3210.agent27.agent27.Agent27"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent50.agent50.Agent50"
+      },
+      {
+        "class": "agents.CSE3210.agent41.agent41.Agent41"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent50.agent50.Agent50"
+      },
+      {
+        "class": "agents.CSE3210.agent43.agent43.Agent43"
+      }
+    ],
+    "profiles": [
+      "domains/domain00/profileA.json",
+      "domains/domain00/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.group69_agent.group69_agent.Agent69",
+        "parameters": {
+          "storage_dir": "agent_storage/TemplateAgent69"
+        }
+      },
+      {
+        "class": "agents.boulware_agent.boulware_agent.BoulwareAgent"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.group69_agent.group69_agent.Agent69",
+        "parameters": {
+          "storage_dir": "agent_storage/TemplateAgent69"
+        }
+      },
+      {
+        "class": "agents.conceder_agent.conceder_agent.ConcederAgent"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.group69_agent.group69_agent.Agent69",
+        "parameters": {
+          "storage_dir": "agent_storage/TemplateAgent69"
+        }
+      },
+      {
+        "class": "agents.linear_agent.linear_agent.LinearAgent"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.group69_agent.group69_agent.Agent69",
+        "parameters": {
+          "storage_dir": "agent_storage/TemplateAgent69"
+        }
+      },
+      {
+        "class": "agents.random_agent.random_agent.RandomAgent"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.group69_agent.group69_agent.Agent69",
+        "parameters": {
+          "storage_dir": "agent_storage/TemplateAgent69"
+        }
+      },
+      {
+        "class": "agents.stupid_agent.stupid_agent.StupidAgent"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.group69_agent.group69_agent.Agent69",
+        "parameters": {
+          "storage_dir": "agent_storage/TemplateAgent69"
+        }
+      },
+      {
+        "class": "agents.CSE3210.agent2.agent2.Agent2"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.group69_agent.group69_agent.Agent69",
+        "parameters": {
+          "storage_dir": "agent_storage/TemplateAgent69"
+        }
+      },
+      {
+        "class": "agents.CSE3210.agent3.agent3.Agent3"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.group69_agent.group69_agent.Agent69",
+        "parameters": {
+          "storage_dir": "agent_storage/TemplateAgent69"
+        }
+      },
+      {
+        "class": "agents.CSE3210.agent7.agent7.Agent7"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.group69_agent.group69_agent.Agent69",
+        "parameters": {
+          "storage_dir": "agent_storage/TemplateAgent69"
+        }
+      },
+      {
+        "class": "agents.CSE3210.agent11.agent11.Agent11"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.group69_agent.group69_agent.Agent69",
+        "parameters": {
+          "storage_dir": "agent_storage/TemplateAgent69"
+        }
+      },
+      {
+        "class": "agents.CSE3210.agent24.agent24.Agent24"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.group69_agent.group69_agent.Agent69",
+        "parameters": {
+          "storage_dir": "agent_storage/TemplateAgent69"
+        }
+      },
+      {
+        "class": "agents.CSE3210.agent27.agent27.Agent27"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.group69_agent.group69_agent.Agent69",
+        "parameters": {
+          "storage_dir": "agent_storage/TemplateAgent69"
+        }
+      },
+      {
+        "class": "agents.CSE3210.agent41.agent41.Agent41"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.group69_agent.group69_agent.Agent69",
+        "parameters": {
+          "storage_dir": "agent_storage/TemplateAgent69"
+        }
+      },
+      {
+        "class": "agents.CSE3210.agent43.agent43.Agent43"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.group69_agent.group69_agent.Agent69",
+        "parameters": {
+          "storage_dir": "agent_storage/TemplateAgent69"
+        }
+      },
+      {
+        "class": "agents.CSE3210.agent50.agent50.Agent50"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.boulware_agent.boulware_agent.BoulwareAgent"
+      },
+      {
+        "class": "agents.group69_agent.group69_agent.Agent69",
+        "parameters": {
+          "storage_dir": "agent_storage/TemplateAgent69"
+        }
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.boulware_agent.boulware_agent.BoulwareAgent"
+      },
+      {
+        "class": "agents.conceder_agent.conceder_agent.ConcederAgent"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.boulware_agent.boulware_agent.BoulwareAgent"
+      },
+      {
+        "class": "agents.linear_agent.linear_agent.LinearAgent"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.boulware_agent.boulware_agent.BoulwareAgent"
+      },
+      {
+        "class": "agents.random_agent.random_agent.RandomAgent"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.boulware_agent.boulware_agent.BoulwareAgent"
+      },
+      {
+        "class": "agents.stupid_agent.stupid_agent.StupidAgent"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.boulware_agent.boulware_agent.BoulwareAgent"
+      },
+      {
+        "class": "agents.CSE3210.agent2.agent2.Agent2"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.boulware_agent.boulware_agent.BoulwareAgent"
+      },
+      {
+        "class": "agents.CSE3210.agent3.agent3.Agent3"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.boulware_agent.boulware_agent.BoulwareAgent"
+      },
+      {
+        "class": "agents.CSE3210.agent7.agent7.Agent7"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.boulware_agent.boulware_agent.BoulwareAgent"
+      },
+      {
+        "class": "agents.CSE3210.agent11.agent11.Agent11"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.boulware_agent.boulware_agent.BoulwareAgent"
+      },
+      {
+        "class": "agents.CSE3210.agent24.agent24.Agent24"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.boulware_agent.boulware_agent.BoulwareAgent"
+      },
+      {
+        "class": "agents.CSE3210.agent27.agent27.Agent27"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.boulware_agent.boulware_agent.BoulwareAgent"
+      },
+      {
+        "class": "agents.CSE3210.agent41.agent41.Agent41"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.boulware_agent.boulware_agent.BoulwareAgent"
+      },
+      {
+        "class": "agents.CSE3210.agent43.agent43.Agent43"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.boulware_agent.boulware_agent.BoulwareAgent"
+      },
+      {
+        "class": "agents.CSE3210.agent50.agent50.Agent50"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.conceder_agent.conceder_agent.ConcederAgent"
+      },
+      {
+        "class": "agents.group69_agent.group69_agent.Agent69",
+        "parameters": {
+          "storage_dir": "agent_storage/TemplateAgent69"
+        }
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.conceder_agent.conceder_agent.ConcederAgent"
+      },
+      {
+        "class": "agents.boulware_agent.boulware_agent.BoulwareAgent"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.conceder_agent.conceder_agent.ConcederAgent"
+      },
+      {
+        "class": "agents.linear_agent.linear_agent.LinearAgent"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.conceder_agent.conceder_agent.ConcederAgent"
+      },
+      {
+        "class": "agents.random_agent.random_agent.RandomAgent"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.conceder_agent.conceder_agent.ConcederAgent"
+      },
+      {
+        "class": "agents.stupid_agent.stupid_agent.StupidAgent"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.conceder_agent.conceder_agent.ConcederAgent"
+      },
+      {
+        "class": "agents.CSE3210.agent2.agent2.Agent2"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.conceder_agent.conceder_agent.ConcederAgent"
+      },
+      {
+        "class": "agents.CSE3210.agent3.agent3.Agent3"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.conceder_agent.conceder_agent.ConcederAgent"
+      },
+      {
+        "class": "agents.CSE3210.agent7.agent7.Agent7"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.conceder_agent.conceder_agent.ConcederAgent"
+      },
+      {
+        "class": "agents.CSE3210.agent11.agent11.Agent11"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.conceder_agent.conceder_agent.ConcederAgent"
+      },
+      {
+        "class": "agents.CSE3210.agent24.agent24.Agent24"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.conceder_agent.conceder_agent.ConcederAgent"
+      },
+      {
+        "class": "agents.CSE3210.agent27.agent27.Agent27"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.conceder_agent.conceder_agent.ConcederAgent"
+      },
+      {
+        "class": "agents.CSE3210.agent41.agent41.Agent41"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.conceder_agent.conceder_agent.ConcederAgent"
+      },
+      {
+        "class": "agents.CSE3210.agent43.agent43.Agent43"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.conceder_agent.conceder_agent.ConcederAgent"
+      },
+      {
+        "class": "agents.CSE3210.agent50.agent50.Agent50"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.linear_agent.linear_agent.LinearAgent"
+      },
+      {
+        "class": "agents.group69_agent.group69_agent.Agent69",
+        "parameters": {
+          "storage_dir": "agent_storage/TemplateAgent69"
+        }
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.linear_agent.linear_agent.LinearAgent"
+      },
+      {
+        "class": "agents.boulware_agent.boulware_agent.BoulwareAgent"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.linear_agent.linear_agent.LinearAgent"
+      },
+      {
+        "class": "agents.conceder_agent.conceder_agent.ConcederAgent"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.linear_agent.linear_agent.LinearAgent"
+      },
+      {
+        "class": "agents.random_agent.random_agent.RandomAgent"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.linear_agent.linear_agent.LinearAgent"
+      },
+      {
+        "class": "agents.stupid_agent.stupid_agent.StupidAgent"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.linear_agent.linear_agent.LinearAgent"
+      },
+      {
+        "class": "agents.CSE3210.agent2.agent2.Agent2"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.linear_agent.linear_agent.LinearAgent"
+      },
+      {
+        "class": "agents.CSE3210.agent3.agent3.Agent3"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.linear_agent.linear_agent.LinearAgent"
+      },
+      {
+        "class": "agents.CSE3210.agent7.agent7.Agent7"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.linear_agent.linear_agent.LinearAgent"
+      },
+      {
+        "class": "agents.CSE3210.agent11.agent11.Agent11"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.linear_agent.linear_agent.LinearAgent"
+      },
+      {
+        "class": "agents.CSE3210.agent24.agent24.Agent24"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.linear_agent.linear_agent.LinearAgent"
+      },
+      {
+        "class": "agents.CSE3210.agent27.agent27.Agent27"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.linear_agent.linear_agent.LinearAgent"
+      },
+      {
+        "class": "agents.CSE3210.agent41.agent41.Agent41"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.linear_agent.linear_agent.LinearAgent"
+      },
+      {
+        "class": "agents.CSE3210.agent43.agent43.Agent43"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.linear_agent.linear_agent.LinearAgent"
+      },
+      {
+        "class": "agents.CSE3210.agent50.agent50.Agent50"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.random_agent.random_agent.RandomAgent"
+      },
+      {
+        "class": "agents.group69_agent.group69_agent.Agent69",
+        "parameters": {
+          "storage_dir": "agent_storage/TemplateAgent69"
+        }
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.random_agent.random_agent.RandomAgent"
+      },
+      {
+        "class": "agents.boulware_agent.boulware_agent.BoulwareAgent"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.random_agent.random_agent.RandomAgent"
+      },
+      {
+        "class": "agents.conceder_agent.conceder_agent.ConcederAgent"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.random_agent.random_agent.RandomAgent"
+      },
+      {
+        "class": "agents.linear_agent.linear_agent.LinearAgent"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.random_agent.random_agent.RandomAgent"
+      },
+      {
+        "class": "agents.stupid_agent.stupid_agent.StupidAgent"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.random_agent.random_agent.RandomAgent"
+      },
+      {
+        "class": "agents.CSE3210.agent2.agent2.Agent2"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.random_agent.random_agent.RandomAgent"
+      },
+      {
+        "class": "agents.CSE3210.agent3.agent3.Agent3"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.random_agent.random_agent.RandomAgent"
+      },
+      {
+        "class": "agents.CSE3210.agent7.agent7.Agent7"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.random_agent.random_agent.RandomAgent"
+      },
+      {
+        "class": "agents.CSE3210.agent11.agent11.Agent11"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.random_agent.random_agent.RandomAgent"
+      },
+      {
+        "class": "agents.CSE3210.agent24.agent24.Agent24"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.random_agent.random_agent.RandomAgent"
+      },
+      {
+        "class": "agents.CSE3210.agent27.agent27.Agent27"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.random_agent.random_agent.RandomAgent"
+      },
+      {
+        "class": "agents.CSE3210.agent41.agent41.Agent41"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.random_agent.random_agent.RandomAgent"
+      },
+      {
+        "class": "agents.CSE3210.agent43.agent43.Agent43"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.random_agent.random_agent.RandomAgent"
+      },
+      {
+        "class": "agents.CSE3210.agent50.agent50.Agent50"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.stupid_agent.stupid_agent.StupidAgent"
+      },
+      {
+        "class": "agents.group69_agent.group69_agent.Agent69",
+        "parameters": {
+          "storage_dir": "agent_storage/TemplateAgent69"
+        }
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.stupid_agent.stupid_agent.StupidAgent"
+      },
+      {
+        "class": "agents.boulware_agent.boulware_agent.BoulwareAgent"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.stupid_agent.stupid_agent.StupidAgent"
+      },
+      {
+        "class": "agents.conceder_agent.conceder_agent.ConcederAgent"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.stupid_agent.stupid_agent.StupidAgent"
+      },
+      {
+        "class": "agents.linear_agent.linear_agent.LinearAgent"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.stupid_agent.stupid_agent.StupidAgent"
+      },
+      {
+        "class": "agents.random_agent.random_agent.RandomAgent"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.stupid_agent.stupid_agent.StupidAgent"
+      },
+      {
+        "class": "agents.CSE3210.agent2.agent2.Agent2"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.stupid_agent.stupid_agent.StupidAgent"
+      },
+      {
+        "class": "agents.CSE3210.agent3.agent3.Agent3"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.stupid_agent.stupid_agent.StupidAgent"
+      },
+      {
+        "class": "agents.CSE3210.agent7.agent7.Agent7"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.stupid_agent.stupid_agent.StupidAgent"
+      },
+      {
+        "class": "agents.CSE3210.agent11.agent11.Agent11"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.stupid_agent.stupid_agent.StupidAgent"
+      },
+      {
+        "class": "agents.CSE3210.agent24.agent24.Agent24"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.stupid_agent.stupid_agent.StupidAgent"
+      },
+      {
+        "class": "agents.CSE3210.agent27.agent27.Agent27"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.stupid_agent.stupid_agent.StupidAgent"
+      },
+      {
+        "class": "agents.CSE3210.agent41.agent41.Agent41"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.stupid_agent.stupid_agent.StupidAgent"
+      },
+      {
+        "class": "agents.CSE3210.agent43.agent43.Agent43"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.stupid_agent.stupid_agent.StupidAgent"
+      },
+      {
+        "class": "agents.CSE3210.agent50.agent50.Agent50"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent2.agent2.Agent2"
+      },
+      {
+        "class": "agents.group69_agent.group69_agent.Agent69",
+        "parameters": {
+          "storage_dir": "agent_storage/TemplateAgent69"
+        }
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent2.agent2.Agent2"
+      },
+      {
+        "class": "agents.boulware_agent.boulware_agent.BoulwareAgent"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent2.agent2.Agent2"
+      },
+      {
+        "class": "agents.conceder_agent.conceder_agent.ConcederAgent"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent2.agent2.Agent2"
+      },
+      {
+        "class": "agents.linear_agent.linear_agent.LinearAgent"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent2.agent2.Agent2"
+      },
+      {
+        "class": "agents.random_agent.random_agent.RandomAgent"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent2.agent2.Agent2"
+      },
+      {
+        "class": "agents.stupid_agent.stupid_agent.StupidAgent"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent2.agent2.Agent2"
+      },
+      {
+        "class": "agents.CSE3210.agent3.agent3.Agent3"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent2.agent2.Agent2"
+      },
+      {
+        "class": "agents.CSE3210.agent7.agent7.Agent7"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent2.agent2.Agent2"
+      },
+      {
+        "class": "agents.CSE3210.agent11.agent11.Agent11"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent2.agent2.Agent2"
+      },
+      {
+        "class": "agents.CSE3210.agent24.agent24.Agent24"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent2.agent2.Agent2"
+      },
+      {
+        "class": "agents.CSE3210.agent27.agent27.Agent27"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent2.agent2.Agent2"
+      },
+      {
+        "class": "agents.CSE3210.agent41.agent41.Agent41"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent2.agent2.Agent2"
+      },
+      {
+        "class": "agents.CSE3210.agent43.agent43.Agent43"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent2.agent2.Agent2"
+      },
+      {
+        "class": "agents.CSE3210.agent50.agent50.Agent50"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent3.agent3.Agent3"
+      },
+      {
+        "class": "agents.group69_agent.group69_agent.Agent69",
+        "parameters": {
+          "storage_dir": "agent_storage/TemplateAgent69"
+        }
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent3.agent3.Agent3"
+      },
+      {
+        "class": "agents.boulware_agent.boulware_agent.BoulwareAgent"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent3.agent3.Agent3"
+      },
+      {
+        "class": "agents.conceder_agent.conceder_agent.ConcederAgent"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent3.agent3.Agent3"
+      },
+      {
+        "class": "agents.linear_agent.linear_agent.LinearAgent"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent3.agent3.Agent3"
+      },
+      {
+        "class": "agents.random_agent.random_agent.RandomAgent"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent3.agent3.Agent3"
+      },
+      {
+        "class": "agents.stupid_agent.stupid_agent.StupidAgent"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent3.agent3.Agent3"
+      },
+      {
+        "class": "agents.CSE3210.agent2.agent2.Agent2"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent3.agent3.Agent3"
+      },
+      {
+        "class": "agents.CSE3210.agent7.agent7.Agent7"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent3.agent3.Agent3"
+      },
+      {
+        "class": "agents.CSE3210.agent11.agent11.Agent11"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent3.agent3.Agent3"
+      },
+      {
+        "class": "agents.CSE3210.agent24.agent24.Agent24"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent3.agent3.Agent3"
+      },
+      {
+        "class": "agents.CSE3210.agent27.agent27.Agent27"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent3.agent3.Agent3"
+      },
+      {
+        "class": "agents.CSE3210.agent41.agent41.Agent41"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent3.agent3.Agent3"
+      },
+      {
+        "class": "agents.CSE3210.agent43.agent43.Agent43"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent3.agent3.Agent3"
+      },
+      {
+        "class": "agents.CSE3210.agent50.agent50.Agent50"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent7.agent7.Agent7"
+      },
+      {
+        "class": "agents.group69_agent.group69_agent.Agent69",
+        "parameters": {
+          "storage_dir": "agent_storage/TemplateAgent69"
+        }
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent7.agent7.Agent7"
+      },
+      {
+        "class": "agents.boulware_agent.boulware_agent.BoulwareAgent"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent7.agent7.Agent7"
+      },
+      {
+        "class": "agents.conceder_agent.conceder_agent.ConcederAgent"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent7.agent7.Agent7"
+      },
+      {
+        "class": "agents.linear_agent.linear_agent.LinearAgent"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent7.agent7.Agent7"
+      },
+      {
+        "class": "agents.random_agent.random_agent.RandomAgent"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent7.agent7.Agent7"
+      },
+      {
+        "class": "agents.stupid_agent.stupid_agent.StupidAgent"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent7.agent7.Agent7"
+      },
+      {
+        "class": "agents.CSE3210.agent2.agent2.Agent2"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent7.agent7.Agent7"
+      },
+      {
+        "class": "agents.CSE3210.agent3.agent3.Agent3"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent7.agent7.Agent7"
+      },
+      {
+        "class": "agents.CSE3210.agent11.agent11.Agent11"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent7.agent7.Agent7"
+      },
+      {
+        "class": "agents.CSE3210.agent24.agent24.Agent24"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent7.agent7.Agent7"
+      },
+      {
+        "class": "agents.CSE3210.agent27.agent27.Agent27"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent7.agent7.Agent7"
+      },
+      {
+        "class": "agents.CSE3210.agent41.agent41.Agent41"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent7.agent7.Agent7"
+      },
+      {
+        "class": "agents.CSE3210.agent43.agent43.Agent43"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent7.agent7.Agent7"
+      },
+      {
+        "class": "agents.CSE3210.agent50.agent50.Agent50"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent11.agent11.Agent11"
+      },
+      {
+        "class": "agents.group69_agent.group69_agent.Agent69",
+        "parameters": {
+          "storage_dir": "agent_storage/TemplateAgent69"
+        }
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent11.agent11.Agent11"
+      },
+      {
+        "class": "agents.boulware_agent.boulware_agent.BoulwareAgent"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent11.agent11.Agent11"
+      },
+      {
+        "class": "agents.conceder_agent.conceder_agent.ConcederAgent"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent11.agent11.Agent11"
+      },
+      {
+        "class": "agents.linear_agent.linear_agent.LinearAgent"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent11.agent11.Agent11"
+      },
+      {
+        "class": "agents.random_agent.random_agent.RandomAgent"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent11.agent11.Agent11"
+      },
+      {
+        "class": "agents.stupid_agent.stupid_agent.StupidAgent"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent11.agent11.Agent11"
+      },
+      {
+        "class": "agents.CSE3210.agent2.agent2.Agent2"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent11.agent11.Agent11"
+      },
+      {
+        "class": "agents.CSE3210.agent3.agent3.Agent3"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent11.agent11.Agent11"
+      },
+      {
+        "class": "agents.CSE3210.agent7.agent7.Agent7"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent11.agent11.Agent11"
+      },
+      {
+        "class": "agents.CSE3210.agent24.agent24.Agent24"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent11.agent11.Agent11"
+      },
+      {
+        "class": "agents.CSE3210.agent27.agent27.Agent27"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent11.agent11.Agent11"
+      },
+      {
+        "class": "agents.CSE3210.agent41.agent41.Agent41"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent11.agent11.Agent11"
+      },
+      {
+        "class": "agents.CSE3210.agent43.agent43.Agent43"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent11.agent11.Agent11"
+      },
+      {
+        "class": "agents.CSE3210.agent50.agent50.Agent50"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent24.agent24.Agent24"
+      },
+      {
+        "class": "agents.group69_agent.group69_agent.Agent69",
+        "parameters": {
+          "storage_dir": "agent_storage/TemplateAgent69"
+        }
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent24.agent24.Agent24"
+      },
+      {
+        "class": "agents.boulware_agent.boulware_agent.BoulwareAgent"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent24.agent24.Agent24"
+      },
+      {
+        "class": "agents.conceder_agent.conceder_agent.ConcederAgent"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent24.agent24.Agent24"
+      },
+      {
+        "class": "agents.linear_agent.linear_agent.LinearAgent"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent24.agent24.Agent24"
+      },
+      {
+        "class": "agents.random_agent.random_agent.RandomAgent"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent24.agent24.Agent24"
+      },
+      {
+        "class": "agents.stupid_agent.stupid_agent.StupidAgent"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent24.agent24.Agent24"
+      },
+      {
+        "class": "agents.CSE3210.agent2.agent2.Agent2"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent24.agent24.Agent24"
+      },
+      {
+        "class": "agents.CSE3210.agent3.agent3.Agent3"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent24.agent24.Agent24"
+      },
+      {
+        "class": "agents.CSE3210.agent7.agent7.Agent7"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent24.agent24.Agent24"
+      },
+      {
+        "class": "agents.CSE3210.agent11.agent11.Agent11"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent24.agent24.Agent24"
+      },
+      {
+        "class": "agents.CSE3210.agent27.agent27.Agent27"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent24.agent24.Agent24"
+      },
+      {
+        "class": "agents.CSE3210.agent41.agent41.Agent41"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent24.agent24.Agent24"
+      },
+      {
+        "class": "agents.CSE3210.agent43.agent43.Agent43"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent24.agent24.Agent24"
+      },
+      {
+        "class": "agents.CSE3210.agent50.agent50.Agent50"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent27.agent27.Agent27"
+      },
+      {
+        "class": "agents.group69_agent.group69_agent.Agent69",
+        "parameters": {
+          "storage_dir": "agent_storage/TemplateAgent69"
+        }
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent27.agent27.Agent27"
+      },
+      {
+        "class": "agents.boulware_agent.boulware_agent.BoulwareAgent"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent27.agent27.Agent27"
+      },
+      {
+        "class": "agents.conceder_agent.conceder_agent.ConcederAgent"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent27.agent27.Agent27"
+      },
+      {
+        "class": "agents.linear_agent.linear_agent.LinearAgent"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent27.agent27.Agent27"
+      },
+      {
+        "class": "agents.random_agent.random_agent.RandomAgent"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent27.agent27.Agent27"
+      },
+      {
+        "class": "agents.stupid_agent.stupid_agent.StupidAgent"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent27.agent27.Agent27"
+      },
+      {
+        "class": "agents.CSE3210.agent2.agent2.Agent2"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent27.agent27.Agent27"
+      },
+      {
+        "class": "agents.CSE3210.agent3.agent3.Agent3"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent27.agent27.Agent27"
+      },
+      {
+        "class": "agents.CSE3210.agent7.agent7.Agent7"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent27.agent27.Agent27"
+      },
+      {
+        "class": "agents.CSE3210.agent11.agent11.Agent11"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent27.agent27.Agent27"
+      },
+      {
+        "class": "agents.CSE3210.agent24.agent24.Agent24"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent27.agent27.Agent27"
+      },
+      {
+        "class": "agents.CSE3210.agent41.agent41.Agent41"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent27.agent27.Agent27"
+      },
+      {
+        "class": "agents.CSE3210.agent43.agent43.Agent43"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent27.agent27.Agent27"
+      },
+      {
+        "class": "agents.CSE3210.agent50.agent50.Agent50"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent41.agent41.Agent41"
+      },
+      {
+        "class": "agents.group69_agent.group69_agent.Agent69",
+        "parameters": {
+          "storage_dir": "agent_storage/TemplateAgent69"
+        }
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent41.agent41.Agent41"
+      },
+      {
+        "class": "agents.boulware_agent.boulware_agent.BoulwareAgent"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent41.agent41.Agent41"
+      },
+      {
+        "class": "agents.conceder_agent.conceder_agent.ConcederAgent"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent41.agent41.Agent41"
+      },
+      {
+        "class": "agents.linear_agent.linear_agent.LinearAgent"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent41.agent41.Agent41"
+      },
+      {
+        "class": "agents.random_agent.random_agent.RandomAgent"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent41.agent41.Agent41"
+      },
+      {
+        "class": "agents.stupid_agent.stupid_agent.StupidAgent"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent41.agent41.Agent41"
+      },
+      {
+        "class": "agents.CSE3210.agent2.agent2.Agent2"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent41.agent41.Agent41"
+      },
+      {
+        "class": "agents.CSE3210.agent3.agent3.Agent3"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent41.agent41.Agent41"
+      },
+      {
+        "class": "agents.CSE3210.agent7.agent7.Agent7"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent41.agent41.Agent41"
+      },
+      {
+        "class": "agents.CSE3210.agent11.agent11.Agent11"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent41.agent41.Agent41"
+      },
+      {
+        "class": "agents.CSE3210.agent24.agent24.Agent24"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent41.agent41.Agent41"
+      },
+      {
+        "class": "agents.CSE3210.agent27.agent27.Agent27"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent41.agent41.Agent41"
+      },
+      {
+        "class": "agents.CSE3210.agent43.agent43.Agent43"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent41.agent41.Agent41"
+      },
+      {
+        "class": "agents.CSE3210.agent50.agent50.Agent50"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent43.agent43.Agent43"
+      },
+      {
+        "class": "agents.group69_agent.group69_agent.Agent69",
+        "parameters": {
+          "storage_dir": "agent_storage/TemplateAgent69"
+        }
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent43.agent43.Agent43"
+      },
+      {
+        "class": "agents.boulware_agent.boulware_agent.BoulwareAgent"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent43.agent43.Agent43"
+      },
+      {
+        "class": "agents.conceder_agent.conceder_agent.ConcederAgent"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent43.agent43.Agent43"
+      },
+      {
+        "class": "agents.linear_agent.linear_agent.LinearAgent"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent43.agent43.Agent43"
+      },
+      {
+        "class": "agents.random_agent.random_agent.RandomAgent"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent43.agent43.Agent43"
+      },
+      {
+        "class": "agents.stupid_agent.stupid_agent.StupidAgent"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent43.agent43.Agent43"
+      },
+      {
+        "class": "agents.CSE3210.agent2.agent2.Agent2"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent43.agent43.Agent43"
+      },
+      {
+        "class": "agents.CSE3210.agent3.agent3.Agent3"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent43.agent43.Agent43"
+      },
+      {
+        "class": "agents.CSE3210.agent7.agent7.Agent7"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent43.agent43.Agent43"
+      },
+      {
+        "class": "agents.CSE3210.agent11.agent11.Agent11"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent43.agent43.Agent43"
+      },
+      {
+        "class": "agents.CSE3210.agent24.agent24.Agent24"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent43.agent43.Agent43"
+      },
+      {
+        "class": "agents.CSE3210.agent27.agent27.Agent27"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent43.agent43.Agent43"
+      },
+      {
+        "class": "agents.CSE3210.agent41.agent41.Agent41"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent43.agent43.Agent43"
+      },
+      {
+        "class": "agents.CSE3210.agent50.agent50.Agent50"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent50.agent50.Agent50"
+      },
+      {
+        "class": "agents.group69_agent.group69_agent.Agent69",
+        "parameters": {
+          "storage_dir": "agent_storage/TemplateAgent69"
+        }
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent50.agent50.Agent50"
+      },
+      {
+        "class": "agents.boulware_agent.boulware_agent.BoulwareAgent"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent50.agent50.Agent50"
+      },
+      {
+        "class": "agents.conceder_agent.conceder_agent.ConcederAgent"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent50.agent50.Agent50"
+      },
+      {
+        "class": "agents.linear_agent.linear_agent.LinearAgent"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent50.agent50.Agent50"
+      },
+      {
+        "class": "agents.random_agent.random_agent.RandomAgent"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent50.agent50.Agent50"
+      },
+      {
+        "class": "agents.stupid_agent.stupid_agent.StupidAgent"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent50.agent50.Agent50"
+      },
+      {
+        "class": "agents.CSE3210.agent2.agent2.Agent2"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent50.agent50.Agent50"
+      },
+      {
+        "class": "agents.CSE3210.agent3.agent3.Agent3"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent50.agent50.Agent50"
+      },
+      {
+        "class": "agents.CSE3210.agent7.agent7.Agent7"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent50.agent50.Agent50"
+      },
+      {
+        "class": "agents.CSE3210.agent11.agent11.Agent11"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent50.agent50.Agent50"
+      },
+      {
+        "class": "agents.CSE3210.agent24.agent24.Agent24"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent50.agent50.Agent50"
+      },
+      {
+        "class": "agents.CSE3210.agent27.agent27.Agent27"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent50.agent50.Agent50"
+      },
+      {
+        "class": "agents.CSE3210.agent41.agent41.Agent41"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  },
+  {
+    "agents": [
+      {
+        "class": "agents.CSE3210.agent50.agent50.Agent50"
+      },
+      {
+        "class": "agents.CSE3210.agent43.agent43.Agent43"
+      }
+    ],
+    "profiles": [
+      "domains/domain01/profileA.json",
+      "domains/domain01/profileB.json"
+    ],
+    "deadline_time_ms": 10000
+  }
+]
