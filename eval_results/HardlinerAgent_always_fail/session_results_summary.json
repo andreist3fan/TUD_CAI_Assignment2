@@ -1,0 +1,10 @@
+{
+  "num_offers": 3128,
+  "agent_1": "Agent69",
+  "utility_1": 0,
+  "agent_2": "HardlinerAgent",
+  "utility_2": 0,
+  "nash_product": 0,
+  "social_welfare": 0,
+  "result": "failed"
+}
