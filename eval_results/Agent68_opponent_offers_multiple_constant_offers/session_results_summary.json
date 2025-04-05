@@ -1,0 +1,10 @@
+{
+  "num_offers": 2169,
+  "agent_1": "Agent69",
+  "utility_1": 0.7074101128,
+  "agent_2": "Agent68",
+  "utility_2": 0.77123,
+  "nash_product": 0.545575901294744,
+  "social_welfare": 1.4786401128,
+  "result": "agreement"
+}

@@ -1,0 +1,10 @@
+{
+  "num_offers": 3081,
+  "agent_1": "Agent69",
+  "utility_1": 0.5344751535,
+  "agent_2": "BoulwareAgent",
+  "utility_2": 0.5068499777,
+  "nash_product": 0.27089871963267903,
+  "social_welfare": 1.0413251311999998,
+  "result": "agreement"
+}
