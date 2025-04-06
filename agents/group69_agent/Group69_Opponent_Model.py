@@ -84,6 +84,7 @@ class FrequencyOpponentModelGroup69(UtilitySpace, OpponentModel):
 
     # Override
     def getUtility(self, bid: Bid) -> Decimal:
+        #gets the utility of the bid based on a weighted sum of weights and value utiltities as frequency ratio
         if self._domain == None:
             raise ValueError("domain is not initialized")
         if self._totalBids == 0:
@@ -110,6 +111,7 @@ class FrequencyOpponentModelGroup69(UtilitySpace, OpponentModel):
 
     # Override
     def WithAction(self, action: Action, progress: Progress) -> "FrequencyOpponentModelGroup69":
+        # update the weights of issues and the frequencies of value occurences with an action of the opponent
         if self._domain == None:
             raise ValueError("domain is not initialized")
 
@@ -159,6 +161,7 @@ class FrequencyOpponentModelGroup69(UtilitySpace, OpponentModel):
                                              dict(self._previousIssuesValue), dict(self._ourPreviousIssuesValues),
                                              dict(self._issueWeights), dict(self._pastIssues), list(self.all_bids), self._totalChanges)
     def WithMyAction(self, action: Action, progress: Progress) -> "FrequencyOpponentModelGroup69":
+        #update the previous value that we offered when we make a bid, so the opponent model knows what we have offered last as well
         if self._domain == None:
             raise ValueError("domain is not initialized")
 
