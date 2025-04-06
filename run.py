@@ -23,11 +23,11 @@ settings = {
             "parameters": {"storage_dir": "agent_storage/Agent69"},
         },
         {
-            "class": "agents.conceder_agent.conceder_agent.ConcederAgent",
+            "class": "agents.ANL2022.dreamteam109_agent.dreamteam109_agent.DreamTeam109Agent",
         },
 
     ],
-    "profiles": ["domains/domain00/profileA.json", "domains/domain00/profileB.json"],
+    "profiles": ["domains/domain23/profileA.json", "domains/domain23/profileB.json"],
     "deadline_time_ms": 10000,
 }
 

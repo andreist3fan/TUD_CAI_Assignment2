@@ -124,10 +124,11 @@ class Agent69(DefaultParty):
             if actor == self.me and isinstance(action, Accept):
                 self.logger.log(logging.INFO,
                                 f"We have accepted utility:{self.profile.getUtility(self.last_received_bid)}")
+                print(f'accepted at utility: {self.profile.getUtility(self.last_received_bid)}')
             elif actor != self.me and isinstance(action, Accept):
                 self.logger.log(logging.INFO,
                                 f"They have accepted utility:{self.profile.getUtility(self.last_sent_bid)}")
-
+                print(f'accepted at utility: {self.profile.getUtility(self.last_sent_bid)}')
             elif not isinstance(action, Offer):
                 print(f"Received action: {action} (probably rejected by {actor})")
             # ignore action if it is our action
@@ -137,7 +138,7 @@ class Agent69(DefaultParty):
                 if not self.updated:
                     file_path = os.path.join(str(self.storage_dir), f"{self.other}_data_{self.domain.getName()}.json")
                     # if we want to learn across negotiations for testing purposes can be commented out
-                    self.opponent_model.read_data(file_path)
+                    # self.opponent_model.read_data(file_path)
                     self.updated = True
                 # process action done by opponent
                 self.opponent_action(action)
